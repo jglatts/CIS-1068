@@ -108,27 +108,8 @@ public class Main {
         printPoint();    
     }
     
-    public static void bubbleSort(int arr[]) {
-        // bubble sort bish
-        int temp;
-        // i may have to be 1
-        for (int i = 1; i < arr.length; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (arr[j] > arr[i]) {
-                    temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
-            }
-        }
-    }
-    
     /* Program entry point */
     public static void main(String[] args) {
-        //printHelloWorld();
-        int arr[] = {0, 100, 45, 67, 99, 69, 420, 66, 77, 39};
-        bubbleSort(arr);
-        // print the sorted array 
-        for (int i=0;i<arr.length;++i) {System.out.println(arr[i]);};
+        printHelloWorld();
     }
 }
