@@ -175,22 +175,6 @@ h2:hover {
     font-size: 1.5em
   }
   
-  /* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  height: 450px;
-  margin-left: 2em;
-  margin-right: 4px;
-  margin-top: 1em;
-  width: 30%;
-  padding: 30px;
-  border-radius: 25px;
-  border: 4px solid whitesmoke;
-  background: rgb(220, 220, 220); /* Fallback for older browsers without RGBA-support */
-  background: rgba(220, 220, 220, 0.7);
-  /* Get rid of style tag in html and change color here*/
-}  
-    
   #box-3 {
     margin-bottom: 4em;
   }
