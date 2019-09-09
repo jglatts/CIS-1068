@@ -53,17 +53,13 @@ public class Main {
     public static void logInfo(String dir) {
         System.out.println("\n\n\n\n\n");
         System.out.println("--------------------------------------");
-        if (dir.equals("rev")) {
-            System.out.println("Reversing the Array.......");
-        }
-        else {
-            System.out.println("Populating the Array.......");
-        }
+        System.out.println(dir.equals("rev") ? "Reversing the Array......." : "Populating the Array......." );
         System.out.println("--------------------------------------");
         System.out.println("\n\n\n\n\n");
     }
     
     /**
+     * 
      * @param args the command line arguments
      */
     public static void main(String[] args) {
