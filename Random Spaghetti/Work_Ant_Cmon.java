@@ -13,20 +13,45 @@ import java.util.Scanner;
  * @author User
  */
 public class Work_Ant_Cmon {
-    
+
     public static void trippyPrint() {
-        for (int i = 0;  i < 30 ; ++i) {
+        for (int c = 0; c < 5; ++c) {
+         for (int i = 0;  i < 20 ; ++i) {
             for (int j = 0; j < i; ++j) {
-                System.out.print("****");
+                System.out.print("**||**");
             }
            System.out.println("");   // throw a new line in there
         }
         // rev. the pattern
-        for (int x = 30;  x > 0 ; --x) {
+        for (int x = 20;  x > 0 ; --x) {
             for (int z = 0; z < x; ++z) {
                 System.out.print("**||**");
             }
            System.out.println("");   // throw a new line in there
+        }
+            System.out.println("\n");
+        }
+    }
+    
+    public static boolean checkY(int yVal) {
+        if (yVal < 15) return true;
+        if (yVal > 30) return true;
+        return false;
+    }
+    
+    public static void vertPrint() {
+        for (int i = 0; i < 50; ++i) {
+            for (int y = 0; y < 50; ++y) {
+                // tweak that alog. baby
+                  if (checkY(y)) {
+                      System.out.print("*");
+                  } 
+                  else {
+                      System.out.print(" ");
+                  }
+                  //System.out.print("" + y + "");
+            }
+            System.out.println(" ");
         }
     }
     
@@ -34,11 +59,13 @@ public class Work_Ant_Cmon {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("\n\n\nEnter Your Name: ");
+        //trippyPrint();
+        //vertPrint();
+        
+        System.out.println("\nEnter Your Name: ");
         Scanner scan = new Scanner(System.in);
         String userName = scan.nextLine();  // Read user input
-        if ( userName.equals("mudbone")) trippyPrint();
+        if (userName.equals("mudbone")) vertPrint(); 
         System.out.println(userName);
     }
     
