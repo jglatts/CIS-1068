@@ -85,8 +85,7 @@ public class Glatts_John_Assignment2 {
                 System.out.print(str.charAt(i));
             }        
         }
-        else System.out.println("Empty String Passed...");   // may not need this
-
+        
         System.out.println(" ");
     } 
     
@@ -96,12 +95,12 @@ public class Glatts_John_Assignment2 {
             -  Test different cases to confirm
     */
     public static void interestTable() {
-        double interest_rate = 0.065, invest = 1000.0, deposit = 100.0, amount;
-        int period = 25;
+        double amount, interest_rate = 0.065, invest = 1000.0, deposit = 100.0;
+
         System.out.println("\n\n----------------------------------");
         System.out.println("\tThe Bank of Jupin");
         System.out.println("----------------------------------");
-        for (int i = 1; i <= period; ++i) {
+        for (int i = 1; i <= 25; ++i) {
             amount = Math.pow((1 + interest_rate), i);
             amount *= invest;   // should this be invest or the deposit?
             System.out.printf("\nYear: " + i + " -- Amount: " + "%.2f\n", amount);
