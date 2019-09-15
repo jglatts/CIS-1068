@@ -13,7 +13,9 @@ import java.util.Scanner;
  * @author User
  */
 public class Work_Ant_Cmon {
-
+    
+    public static int SIZE = 300;
+    
     public static void trippyPrint() {
         for (int c = 0; c < 5; ++c) {
          for (int i = 0;  i < 20 ; ++i) {
@@ -33,17 +35,23 @@ public class Work_Ant_Cmon {
         }
     }
     
-    public static boolean checkY(int yVal) {
-        if (yVal < 15) return true;
-        if (yVal > 30) return true;
+    public static boolean yValCheck(int yVal) {
+        if (yVal < (SIZE / 10)) return true;
+        if (yVal < (SIZE / 3) && yVal > (SIZE / 5)) return true;
+        if (yVal > (SIZE / 2.5) && yVal < (SIZE / 2)) return true;
+        if (yVal > (SIZE / 1.6) && yVal < (SIZE / 1.4)) return true;
+        if (yVal > (SIZE / 1.25)) return true;
+        
         return false;
     }
     
     public static void vertPrint() {
-        for (int i = 0; i < 50; ++i) {
-            for (int y = 0; y < 50; ++y) {
+        String check = " ";
+
+        for (int i = 0; i < SIZE; ++i) {
+            for (int y = 0; y < SIZE; ++y) {
                 // tweak that alog. baby
-                  if (checkY(y)) {
+                  if (yValCheck(y)) {
                       System.out.print("*");
                   } 
                   else {
@@ -51,7 +59,7 @@ public class Work_Ant_Cmon {
                   }
                   //System.out.print("" + y + "");
             }
-            System.out.println(" ");
+           System.out.println(" ");
         }
     }
     
@@ -59,14 +67,18 @@ public class Work_Ant_Cmon {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //trippyPrint();
-        //vertPrint();
+        String userName;
         
-        System.out.println("\nEnter Your Name: ");
-        Scanner scan = new Scanner(System.in);
-        String userName = scan.nextLine();  // Read user input
-        if (userName.equals("mudbone")) vertPrint(); 
-        System.out.println(userName);
+        do {
+                 System.out.println("\nEnter Your Name: ");
+                 Scanner scan = new Scanner(System.in);
+                 userName = scan.nextLine();  // Read user input
+        }  while (userName.equals("mudbone") == false);
+        
+        vertPrint();
+        System.out.println("\n\n---------------------------------------------------");
+        System.out.println("*\n*\n*\n*\n*\n*\t\t" + "Writen By: Mudbone xD" + "\n*\n*\n*\n*\n*\n*\n*\n*\n*");
+        System.out.println("---------------------------------------------------");
     }
     
 }
