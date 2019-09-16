@@ -35,6 +35,7 @@ public class Glatts_John_Assignment2 {
      */
     public static void main(String[] args) {
        quadratic(1, 5, 2); 
+       quadratic(1, 3, -10);
        quadratic(10, 15, 12); 
        System.out.println("\nArea of Triangle: " + triangleArea(8, 5.2, 7.1));
        printReverse("hello there!");
@@ -49,17 +50,18 @@ public class Glatts_John_Assignment2 {
         double radical = (b * b) - (4 * a * c);
         double divisor = 2 * a;
         
+        System.out.println("\nSolving: " + a + "^2 + " + b + "x + " + c + " = 0");
         if (radical > 0.0) {
             double rootOne =( -b + Math.sqrt(radical)) / divisor;
             double rootTwo =( -b - Math.sqrt(radical)) / divisor;
-            System.out.println("\nRoot One: " + rootOne);
-            System.out.println("\nRoot Two: " + rootTwo);
+            System.out.println("Root One: " + rootOne);
+            System.out.println("Root Two: " + rootTwo);
         }
         else if (radical == 0.0) {
             double rootOne = -b / divisor;
-            System.out.println("\nRoot One: " + rootOne);
+            System.out.println("Root One: " + rootOne);
         }
-        else System.out.println("\nThe equation entered has no real roots");
+        else System.out.println("The equation entered has no real roots");
     }
     
     /* 
@@ -97,7 +99,7 @@ public class Glatts_John_Assignment2 {
     public static void interestTable() {
         double amount, interest_rate = 0.065, invest = 1000.0, deposit = 100.0;
 
-        System.out.println("\n\n----------------------------------");
+        System.out.println("\n----------------------------------");
         System.out.println("\tThe Bank of Jupin");
         System.out.println("----------------------------------");
         for (int i = 1; i <= 25; ++i) {
