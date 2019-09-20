@@ -1,4 +1,4 @@
-/*
+  /*
 
 #8) Write a method called quadratic that solves quadratic equations and
 prints their roots. 
@@ -35,7 +35,6 @@ public class Glatts_John_Assignment2 {
      */
     public static void main(String[] args)  {
        quadratic(1, -7, 6); 
-       quadratic(1, 5, 6); 
        System.out.println("\nArea of Triangle: " + triangleArea(8, 5.2, 7.1));
        printReverse("hello there!");
        programmingProject2();
@@ -66,8 +65,7 @@ public class Glatts_John_Assignment2 {
     */
     public static double triangleArea(double a, double b, double c) {
         double s = (a + b + c) / 2;
-        double area = Math.sqrt(s * (s-a) * (s-b) * (s-c));
-        return area;
+        return Math.sqrt(s * (s-a) * (s-b) * (s-c));
     }
     
     /* 
