@@ -33,31 +33,28 @@ public class Glatts_John_Assignment2 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-       quadratic(1, 5, 2); 
-       quadratic(1, 3, -10);
-       quadratic(10, 15, 12); 
+    public static void main(String[] args)  {
+       quadratic(1, -7, 6); 
+       quadratic(1, 5, 6); 
        System.out.println("\nArea of Triangle: " + triangleArea(8, 5.2, 7.1));
        printReverse("hello there!");
-       interestTable();
+       programmingProject2();
     }
     
     /* 
-        Working
-            -  Add extra if statements in case there are no roots of the equation
+          Solve a quadratic equation and print the roots
     */
-    public static void quadratic(double a, double b, double c) {
-        double radical = (b * b) - (4 * a * c);
-        double divisor = 2 * a;
+    public static void quadratic(double a, double b, double c)  {
+        double check = (b * b) - (4 * a * c), divisor = 2 * a;
         
-        System.out.println("\nSolving: " + a + "^2 + " + b + "x + " + c + " = 0");
-        if (radical > 0.0) {
-            double rootOne =( -b + Math.sqrt(radical)) / divisor;
-            double rootTwo =( -b - Math.sqrt(radical)) / divisor;
+        System.out.println("\nSolving: " + a + "x^2 + " + b + "x + " + c + " = 0");
+        if (check > 0.0) {
+            double rootOne = ( -b + Math.sqrt(check)) / divisor;
+            double rootTwo = ( -b - Math.sqrt(check)) / divisor;
             System.out.println("Root One: " + rootOne);
             System.out.println("Root Two: " + rootTwo);
         }
-        else if (radical == 0.0) {
+        else if (check == 0.0) {
             double rootOne = -b / divisor;
             System.out.println("Root One: " + rootOne);
         }
@@ -65,8 +62,7 @@ public class Glatts_John_Assignment2 {
     }
     
     /* 
-        Working
-            -  Test different cases to confirm
+            Compute the area of a triangle using heron's formula
     */
     public static double triangleArea(double a, double b, double c) {
         double s = (a + b + c) / 2;
@@ -75,37 +71,37 @@ public class Glatts_John_Assignment2 {
     }
     
     /* 
-        Working
-            -  Test different cases to confirm
+            Print a string in reverse order
     */
     public static void printReverse(String str) {
         System.out.println(" ");
         System.out.print("Reversed string: ");
-        
-        if (!str.isEmpty()) {
-            for (int i = str.length() - 1; i >= 0; --i) {
+        for (int i = str.length() - 1; i >= 0; --i) {
                 System.out.print(str.charAt(i));
             }        
-        }
-        
-        System.out.println(" ");
     } 
     
      /* 
-        Somewhat Working...
-            - manually compute the outcomes and compare
-            -  Test different cases to confirm
+            Compute intreset rate and balances 
     */
-    public static void interestTable() {
-        double amount, interest_rate = 0.065, invest = 1000.0, deposit = 100.0;
+    public static void programmingProject2(){
+        double deposit = 0, current_balance = 0, new_balance = 0, interest = 0, interest_rate = 0.065, invest = 1000.0;
 
-        System.out.println("\n----------------------------------");
-        System.out.println("\tThe Bank of Jupin");
-        System.out.println("----------------------------------");
+        System.out.println("\n\nYear\t New Deposit\t Current Balance\t Interest\t New Balance");
+        
         for (int i = 1; i <= 25; ++i) {
-            amount = Math.pow((1 + interest_rate), i);
-            amount *= invest;   // should this be invest or the deposit?
-            System.out.printf("\nYear: " + i + " -- Amount: " + "%.2f\n", amount);
+            if (i == 1 ) {
+                deposit = invest;
+                current_balance = invest;
+            }
+            new_balance = current_balance * Math.pow((1 + interest_rate), 1);
+            interest = new_balance - current_balance;
+            // print values
+            System.out.printf("%d\t   %.2f\t     %.2f\t          %.2f\t    %.2f\n", i, deposit, current_balance, interest, new_balance);
+            System.out.println("----------------------------------------------------------------------------------------");
+            // update values
+            deposit = 100;
+            current_balance = new_balance + deposit;
         }
     }
     
