@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  *
  * @author John Glatts
- * @duedate 9-20-19
+ * @duedate 9-27-19
  * 
  */
 public class Glatts_John_Assignment_3 {
