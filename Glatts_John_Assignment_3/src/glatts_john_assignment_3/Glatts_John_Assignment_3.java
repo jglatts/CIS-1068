@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  *
  * @author John Glatts
- * @duedate 9-27-19
+ * @duedate 9-20-19
  * 
  */
 public class Glatts_John_Assignment_3 {
@@ -25,17 +25,16 @@ public class Glatts_John_Assignment_3 {
         //smallestLargest(scanner); // test this with some randomly gen. int's
         System.out.println("\nBinary represention of: " + 44 + " is " + toBinary(44));
         System.out.println("\nBinary represention of: " + 420 + " is " + toBinary(420));
-        pascalsTriangle();
-       
-        /*
         showTwos(7);
         showTwos(18);
         showTwos(24);
         showTwos(188);
+        System.out.println("\n\nPascals Triangle");
+        // tweak both of these
+        pascalsTriangle();
+        System.out.println("\n\n");
         pigLatin(pigScanner);
-        
-        */
-        
+       
     }
     
     /*  
@@ -110,18 +109,21 @@ public class Glatts_John_Assignment_3 {
                 - the values seem to be right, but the formatting is way off
     */   
     public static void pascalsTriangle() {
-        int rows = 11;
-        for (int i = 0; i < rows; ++i) {
-            int count = 1;
-            for (int y = 0; y < rows - 1; ++y) {
-                    System.out.print(" ");  // print spaces
-            }       
-            for (int z = 0; z <= i; ++z) {
-                    System.out.printf("%4d", count);
-                    count = count * (i-z) / (z+1);
+
+        int noRow = 11,  c = 1;
+        for(int i = 0; i < noRow; i++) {
+            for(int blk = 1; blk<= noRow-i; blk++)
+            System.out.print(" ");
+            for(int j = 0; j <= i; ++j)  {
+                if (j==0 || i==0)
+                    c=1;
+                else
+                   c = (c * (i - j + 1))  /  j;
+                System.out.print(" " + c);
             }
-            System.out.print("\n");
-        }   
+           if (i != noRow-1) System.out.print("\n");
+        }    
+        
     }
     
      /*  
