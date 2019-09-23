@@ -109,11 +109,12 @@ public class Glatts_John_Assignment_3 {
                 - the values seem to be right, but the formatting is way off
     */   
     public static void pascalsTriangle() {
-
         int noRow = 11,  c = 1;
+
         for(int i = 0; i < noRow; i++) {
-            for(int blk = 1; blk<= noRow-i; blk++)
-            System.out.print(" ");
+            for(int blk = 1; blk <= noRow-i; blk++) {
+                System.out.print(" ");
+            }
             for(int j = 0; j <= i; ++j)  {
                 if (j==0 || i==0)
                     c=1;
