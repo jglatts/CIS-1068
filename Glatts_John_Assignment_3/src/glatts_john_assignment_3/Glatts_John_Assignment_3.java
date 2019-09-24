@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  *
  * @author John Glatts
- * @duedate 9-20-19
+ * @duedate 9-27-19
  * 
  */
 public class Glatts_John_Assignment_3 {
@@ -19,6 +19,7 @@ public class Glatts_John_Assignment_3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        /*
         Scanner scanner = new Scanner(System.in);
         Scanner pigScanner = new Scanner (System.in);
         System.out.println("\nFraction sum of " + 15 + " = " + fractionSum(15));
@@ -34,7 +35,9 @@ public class Glatts_John_Assignment_3 {
         pascalsTriangle();
         System.out.println("\n\n");
         pigLatin(pigScanner);
-       
+       */
+        Scanner pigScanner = new Scanner (System.in);
+        pigLatin(pigScanner);
     }
     
     /*  
@@ -55,7 +58,6 @@ public class Glatts_John_Assignment_3 {
         Scan each integer in and then find the smallest and largest values
     */
     public static void smallestLargest(Scanner scanner) {
-        
         System.out.print("\nHow many numbers would you like to enter?  ");
         int numberLimit = scanner.nextInt();
         int[] inputArray = new int[numberLimit];
@@ -84,6 +86,21 @@ public class Glatts_John_Assignment_3 {
         return smallest;
     }
     
+    // figure out a way to get this guy working
+    public static int findValue(int arr[], int firstValue, String check) {
+        int value = 0;
+        
+        for (int i = 0; i < arr.length; ++i) {
+            if (check.equals("lowest")) {
+                if (arr[i] < firstValue) value = arr[i];
+            }
+            else {
+                if (arr[i] > firstValue) value = arr[i];
+            }
+        }
+        return value;
+    }
+    
      /*  
         Find and return the largest number entered by the user
     */     
@@ -107,24 +124,30 @@ public class Glatts_John_Assignment_3 {
      /*  
            Format and print pascals triangle  
                 - the values seem to be right, but the formatting is way off
+                - use proper formatting, i.e 4 space width padding    
     */   
     public static void pascalsTriangle() {
-        int noRow = 11,  c = 1;
-
+        // see if 3 scanner objects are really needed
+        Scanner pascalScanner = new Scanner(System.in);
+        int  count = 1;
+        
+        System.out.print("\nThis is the pascalsTriangle program. How many lines of the triangle would you like? ");
+        int noRow = pascalScanner.nextInt();
+        
+        // get proper formatting working 
         for(int i = 0; i < noRow; i++) {
-            for(int blk = 1; blk <= noRow-i; blk++) {
+            for(int x = 1; x <= noRow-i; x++) {
                 System.out.print(" ");
             }
             for(int j = 0; j <= i; ++j)  {
                 if (j==0 || i==0)
-                    c=1;
+                    count = 1;
                 else
-                   c = (c * (i - j + 1))  /  j;
-                System.out.print(" " + c);
+                   count = (count * (i - j + 1))  /  j;
+                System.out.print(" " + count);
             }
-           if (i != noRow-1) System.out.print("\n");
+           System.out.print("\n");
         }    
-        
     }
     
      /*  
@@ -146,58 +169,46 @@ public class Glatts_John_Assignment_3 {
     public static void pigLatin(Scanner scanner) {
         System.out.print("\nEnter a string to be converted to pig latin: ");
         String str = scanner.nextLine();
-        System.out.print("\nPig Latin = " + convertToPigLatin(str));
+        System.out.print("\nPig Latin = " + translateToPigLatin(str));
     }
-
-     /*  
-          Accept the user's string as a parameter and convert it to pig latin
-          return the converted string
-                
-                    - Get this working and then clean up in helper functions !!
-                    - It's close but still got some work to do     
-    */        
-    public static String convertToPigLatin(String str) {
-        char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
-        String[] consonants = new String[] {"th", "ch", "sh"};
-        String[] strArray = str.split(" ");  
-        String[] newString = new String[strArray.length];   // double check this size 
-        int[] positionArray = new int[strArray.length];   // double check this size 
-        int index= 0;
-        String pigLatin = "";
-                
-        for (int z = 0; z < strArray.length; ++z) {
-              for (int y = 0; y < consonants.length; ++y) {
-                  // lil hairy here
-                  if (strArray[z].startsWith(consonants[y])) {
-                      // now this is'nt working :(
-                      newString[z] = strArray[z].substring(2)+strArray[z].substring(0,2)+"-ay " ;
-                      positionArray[z] = z; // flag the position of the changed word
-                  }
-                 else newString[z] = strArray[z] + "-ay";    
-              }
-        }    
-        
-        for (int i = 0; i < strArray.length; ++i) {
-              for (int x = 0; x < vowels.length; ++x) {
-                  if (strArray[i].charAt(0) == vowels[x])  strArray[i] += "-ay ";   // hunting the vowels
-              }
-        }
-        
-        // populate the pigLatin string
-        // getting a null for some of the values 
-        for (int t = 0; t < strArray.length; ++t) {
-            System.out.println(strArray[t] + "");
-            if (t != positionArray[index]) {
-                pigLatin += strArray[t] + " ";
-            }
-            else {
-                pigLatin += newString[index] + " ";
-            }
-            index++;
-        }
-        
-        return pigLatin += "\n";
     
+    // terminate the program when user enters a blank string 
+    // get this working
+    public static String translateToPigLatin(String str) {
+        String outPut = "";
+        String segment[] = str.split(" ");
+        
+        for (int i = 0; i < segment.length; ++i) {
+            System.out.println(segment[i] + "");   //debug
+            for (int y = 0; y < segment[i].length(); ++y) {
+                char segmentIndex = segment[i].charAt(y);
+                if (checkForVowel(segmentIndex)) {
+                     if (y != 0) {
+                            //String toMove = segment[i].substring(0, y);
+                            String toMove = segment[i].substring(0, 2); // testing where we should put the substring 
+	      String cutHere = segment[i].substring(y, segment[i].length());    // change this back to 2?
+                            outPut += swapLetters(cutHere, toMove);
+	  }
+	  else {
+	       outPut += segment[i] + "-ay ";
+	  }                    
+                }
+             }
+          }
+        return outPut;   
+    }  
+
+    // method is working 
+    public static boolean checkForVowel(char charSegment) {
+        return (charSegment == 'a' || charSegment == 'e' || charSegment == 'i' || charSegment == 'o' || charSegment == 'u'); // maybe clean up, but a nice one-liner 
     }
+    
+    // seems like this method is working 
+    public static String swapLetters(String cut, String move) {
+        String returnStr = cut + move + "-ay ";
+        return returnStr;
+    }
+    
 }
+    
 
