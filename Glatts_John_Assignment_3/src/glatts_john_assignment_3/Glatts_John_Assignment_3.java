@@ -134,7 +134,9 @@ public class Glatts_John_Assignment_3 {
         System.out.print("\nThis is the pascalsTriangle program. How many lines of the triangle would you like? ");
         int noRow = pascalScanner.nextInt();
         
-        // get proper formatting working 
+        // the values are correct
+        // calculate how many spaces to print
+        // the 2nd loop might already be doing this 
         for(int i = 0; i < noRow; i++) {
             for(int x = 1; x <= noRow-i; x++) {
                 System.out.print(" ");
@@ -168,12 +170,12 @@ public class Glatts_John_Assignment_3 {
     */          
     public static void pigLatin(Scanner scanner) {
         System.out.print("\nEnter a string to be converted to pig latin: ");
-        String str = scanner.nextLine();
-        System.out.print("\nPig Latin = " + translateToPigLatin(str));
+        System.out.println("s");
+        //String str = scanner.nextLine();
+        System.out.print("\nPig Latin = " + translateToPigLatin("the deepest shade of mushroom blue") + "\n");
     }
     
-    // terminate the program when user enters a blank string 
-    // get this working
+    
     public static String translateToPigLatin(String str) {
         String outPut = "";
         String segment[] = str.split(" ");
@@ -188,6 +190,7 @@ public class Glatts_John_Assignment_3 {
                             String toMove = segment[i].substring(0, 2); // testing where we should put the substring 
 	      String cutHere = segment[i].substring(y, segment[i].length());    // change this back to 2?
                             outPut += swapLetters(cutHere, toMove);
+                            break;
 	  }
 	  else {
 	       outPut += segment[i] + "-ay ";
@@ -207,7 +210,8 @@ public class Glatts_John_Assignment_3 {
     public static String swapLetters(String cut, String move) {
         String returnStr = cut + move + "-ay ";
         return returnStr;
-    }
+    }    
+
     
 }
     
