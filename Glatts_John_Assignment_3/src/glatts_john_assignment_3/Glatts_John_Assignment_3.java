@@ -68,30 +68,19 @@ public class Glatts_John_Assignment_3 {
             System.out.println("");
         }
         
-        System.out.println("Smallest Number = " + getSmallestNumber(inputArray));
-        System.out.println("Largest Number = " +   getLargestNumber(inputArray));
+        System.out.println("Smallest Number = " + findValue(inputArray, inputArray[0], "smallest"));
+        System.out.println("Largest Number = " +   findValue(inputArray, inputArray[0], "largest"));
         
     }
     
-    /*  
-        Find and return the smallest number entered by the user
-    */    
-    public static int getSmallestNumber(int array[]) {
-        int smallest = array[0];
-        
-        for (int i = 0; i < array.length; ++i) {
-            if (array[i] < smallest) smallest = array[i];
-        }
-        
-        return smallest;
-    }
-    
-    // figure out a way to get this guy working
+     /*  
+        Find and return the largest or smallest number from the array of integers 
+    */     
     public static int findValue(int arr[], int firstValue, String check) {
         int value = 0;
         
         for (int i = 0; i < arr.length; ++i) {
-            if (check.equals("lowest")) {
+            if (check.equals("smallest")) {
                 if (arr[i] < firstValue) value = arr[i];
             }
             else {
@@ -100,20 +89,7 @@ public class Glatts_John_Assignment_3 {
         }
         return value;
     }
-    
-     /*  
-        Find and return the largest number entered by the user
-    */     
-    public static int getLargestNumber(int array[]) {
-        int largest = array[0];
-        
-        for (int i = 0; i < array.length; ++i) {
-             if (array[i] > largest) largest = array[i];
-        }
-        
-        return largest;
-    }
-    
+
      /*  
           Accept an integer as a paramter and return the binary value  
     */         
@@ -181,14 +157,12 @@ public class Glatts_John_Assignment_3 {
         String segment[] = str.split(" ");
         
         for (int i = 0; i < segment.length; ++i) {
-            System.out.println(segment[i] + "");   //debug
             for (int y = 0; y < segment[i].length(); ++y) {
                 char segmentIndex = segment[i].charAt(y);
                 if (checkForVowel(segmentIndex)) {
                      if (y != 0) {
-                            //String toMove = segment[i].substring(0, y);
-                            String toMove = segment[i].substring(0, 2); // testing where we should put the substring 
-	      String cutHere = segment[i].substring(y, segment[i].length());    // change this back to 2?
+                            String toMove = segment[i].substring(0, 2); 
+	      String cutHere = segment[i].substring(y, segment[i].length()); 
                             outPut += swapLetters(cutHere, toMove);
                             break;
 	  }
@@ -203,7 +177,7 @@ public class Glatts_John_Assignment_3 {
 
     // method is working 
     public static boolean checkForVowel(char charSegment) {
-        return (charSegment == 'a' || charSegment == 'e' || charSegment == 'i' || charSegment == 'o' || charSegment == 'u'); // maybe clean up, but a nice one-liner 
+        return (charSegment == 'a' || charSegment == 'e' || charSegment == 'i' || charSegment == 'o' || charSegment == 'u');
     }
     
     // seems like this method is working 
