@@ -186,7 +186,4 @@ public class Glatts_John_Assignment_3 {
         return returnStr;
     }    
 
-    
 }
-    
-
