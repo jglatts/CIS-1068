@@ -162,9 +162,9 @@
         String str = "";
         // only perform conversion if string is not empty 
         do {
-                    System.out.print("\nEnter a string to be converted to pig latin: ");
-                     str = scanner.nextLine();       
-                     System.out.println("String converted to pig latin = " + translateToPigLatin(str));
+                 System.out.print("\nEnter a string to be converted to pig latin: ");
+                 str = scanner.nextLine();       
+                 System.out.println("String converted to pig latin = " + translateToPigLatin(str));
         } while (!str.equals(""));
         System.out.println("Empty string passed in.\nProgram Terminated.");
     }
@@ -185,7 +185,6 @@
                          if (y != 0) {
                                 String toMove = segment[i].substring(0, y);     
                                 String cutHere = segment[i].substring(y, segment[i].length()); 
-                                // add an if here to check if the word begins with a conosat, like th     
                                 outPut += cutHere + "-"+ toMove + "ay ";
                                 break;   
                         }
