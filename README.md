@@ -1,5 +1,5 @@
 # CIS-1068
-Program design and abstraction - Temple
+Program design and abstraction
 
 
-Homeworks and Labs
+
