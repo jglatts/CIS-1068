@@ -3,7 +3,7 @@ package glatts_john_assignment_4;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
+        
 public class Glatts_John_Assignment_4 {
     
     public static final String numbersPath = "numbers.txt";
@@ -13,9 +13,13 @@ public class Glatts_John_Assignment_4 {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(numbersPath));
         Scanner statsScanner = new Scanner(new File(tokenPath));
+        int[] devArray = new int[]{1, -2, 4, -4, 9, -6, 16, -8, 25, -10}; 
         evenNumbers(scanner, numbersPath.length());
-        System.out.println("Stats-File has " + getStats(statsScanner) + " lines of text ");
-     }
+        System.out.println("Stats-File has " + getStats(statsScanner) + " lines of text\n");
+        System.out.println("Std-Dev is: " + stdDev(devArray) + "\n");
+        generateMatrices();
+ 
+    }
 
     /* 
             Parse a file and find all the numbers inside
@@ -36,7 +40,8 @@ public class Glatts_John_Assignment_4 {
     */
     public static void printNumberInfo(int[] allValues, int index) {
         int evens = countEvens(allValues, index);
-        System.out.printf("\n"+index + " numbers, sum = " + getSum(allValues));
+        System.out.println("\nLooking at 'numbers.txt'");
+        System.out.printf("\t-File has "+index + " numbers, sum = " + getSum(allValues));
         System.out.print(", " + evens + " evens " );
         // convert to %
         System.out.printf( "%.2f" , getPercent(evens, index));
@@ -112,14 +117,52 @@ public class Glatts_John_Assignment_4 {
         return count;
     }
     
-   /* 
     public static double stdDev(int[] values) {
+        // getting something, but its not right     
         double sd = 0;
-        double average = 0.0;
+        int average = getSum(values) / values.length;
+        System.out.println(average + " = avrg.");
         for (int i = 0; i < values.length; i++) {
-            sd += square(values[i] - average) / values.length;
+            sd += Math.pow(values[i] - average, 2) / values.length;
         }
-        return math.sqrt(sd);
+         return Math.sqrt(sd);
+     }
+    
+    public static void generateMatrices() {
+        int[][] arrOne = new int[][] {
+            new int[] { 1, 2, 3, 7, 12, 20, 69 },
+            new int[] { 1, 2, 3, 7, 12, 20, 69 },
+        };
+        int[][] arrTwo = new int[][] {
+            new int[] { 1, 2, 3, 7, 12, 20, 69 },
+            new int[] { 1, 2, 3, 7, 12, 20, 69 },
+        };       
+        addMatrices(arrOne, arrTwo);
     }
-*/
+    
+    public static void addMatrices(int[][] arrOne, int[][] arrTwo) {
+       int sizeOne = arrOne.length;
+        int sizeTwo = arrOne[0].length;
+        int[][] arrThree = new int[sizeOne][sizeTwo];
+        // add the 2 matrices 
+        for (int i = 0; i < sizeOne; ++i) {
+            for (int x = 0; x < sizeTwo; ++x) {
+                arrThree[i][x] = arrOne[i][x] + arrTwo[i][x];
+            }
+        }
+        printMatrices(arrThree);
+    }
+    
+    public static void printMatrices(int[][] arrThree) {
+        int value;
+        System.out.println("\nAdded Matrices = ");
+        for (int i = 0; i < arrThree.length; ++i) {
+            for (int x = 0; x < arrThree[0].length; ++x) {
+                value =arrThree[i][x]; 
+                System.out.print(" " + value);
+            }
+            System.out.println(" ");
+        }
+    }
+     
 }
