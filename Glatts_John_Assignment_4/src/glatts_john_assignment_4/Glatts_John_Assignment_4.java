@@ -71,7 +71,6 @@ public class Glatts_John_Assignment_4 {
         return evenCount;    
     }
     
-    
     /* 
             Return the percent of even numbers from text file  
    */     
@@ -92,7 +91,6 @@ public class Glatts_John_Assignment_4 {
         }
         return count;
     }
-    
     
     /* 
            Find the number of tokens on each line 
@@ -117,6 +115,9 @@ public class Glatts_John_Assignment_4 {
         return count;
     }
     
+    /*
+        Find and return the standard deviation from a given array
+    */
     public static double stdDev(int[] values) {
         // getting something, but its not right     
         double sd = 0;
@@ -128,6 +129,9 @@ public class Glatts_John_Assignment_4 {
          return Math.sqrt(sd);
      }
     
+     /*
+        Generate two 2D arrays, i.e 2 matrices
+    */
     public static void generateMatrices() {
         int[][] arrOne = new int[][] {
             new int[] { 1, 2, 3, 7, 12, 20, 69 },
@@ -140,8 +144,11 @@ public class Glatts_John_Assignment_4 {
         addMatrices(arrOne, arrTwo);
     }
     
+     /*
+        Add both matrices together
+    */
     public static void addMatrices(int[][] arrOne, int[][] arrTwo) {
-       int sizeOne = arrOne.length;
+        int sizeOne = arrOne.length;
         int sizeTwo = arrOne[0].length;
         int[][] arrThree = new int[sizeOne][sizeTwo];
         // add the 2 matrices 
@@ -153,6 +160,9 @@ public class Glatts_John_Assignment_4 {
         printMatrices(arrThree);
     }
     
+    /*
+        Print the new matrix
+    */
     public static void printMatrices(int[][] arrThree) {
         int value;
         System.out.println("\nAdded Matrices = ");
