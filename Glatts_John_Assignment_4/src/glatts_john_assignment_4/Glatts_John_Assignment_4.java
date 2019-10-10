@@ -255,7 +255,8 @@ public class Glatts_John_Assignment_4 {
        for (int x = 0; x < story.length; ++x) {
            if (story[x].equals(".")) {
                // printing the period way off 
-               printStream.println(story[x]);
+               printStream.print(story[x]);
+               printStream.println(" ");
            }
            else {
                printStream.print(story[x] + " ");
