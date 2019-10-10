@@ -225,9 +225,7 @@ public class Glatts_John_Assignment_4 {
          Check the first and last char of a given string to see if it's a placeholder  
     */      
     public static boolean checkForPlaceHolder(char firstSegment, char lastSegment) {
-        if (firstSegment == '<' && lastSegment == '>')  
-            return true;
-        return false;
+        return firstSegment == '<' && lastSegment == '>';
     }
         
    /*
