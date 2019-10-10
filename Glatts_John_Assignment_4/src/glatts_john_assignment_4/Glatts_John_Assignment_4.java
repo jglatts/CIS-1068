@@ -143,8 +143,8 @@ public class Glatts_John_Assignment_4 {
      }
     
      /*
-        Generate two 2D arrays, i.e 2 matrices
-        2 x 7
+        Generate two 2D arrays
+        3 x 7
     */
     public static void generateMatrices() {
         int[][] arrOne = new int[][] {
