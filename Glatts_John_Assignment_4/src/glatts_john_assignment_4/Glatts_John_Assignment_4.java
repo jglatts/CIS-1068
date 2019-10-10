@@ -235,7 +235,7 @@ public class Glatts_John_Assignment_4 {
        PrintStream printStream = new PrintStream(new File(newWords[0]));
        String[] splitOriginalStory = originalString.split(" ");
        int index = 1;   
-       int holderIndex = 1;
+       int holderIndex = 0;
        for (int i = 0; i < splitOriginalStory.length; ++i) {
            if (i == placeHolderIndices[holderIndex]) {
                splitOriginalStory[i] = newWords[index]; 
@@ -244,6 +244,7 @@ public class Glatts_John_Assignment_4 {
            } 
        }
        printStoryToFile(splitOriginalStory, printStream);
+        System.out.println("\nSaved the story in the file: " + newWords[0]);
    }
    
    /*
@@ -252,11 +253,9 @@ public class Glatts_John_Assignment_4 {
    */
    public static void printStoryToFile(String[] story, PrintStream printStream) {
        for (int x = 0; x < story.length; ++x) {
-           if (x == 0)  System.out.print("\t"); // indent the first line
            if (story[x].equals(".")) {
                // printing the period way off 
                printStream.println(story[x]);
-               printStream.print("\t");
            }
            else {
                printStream.print(story[x] + " ");
