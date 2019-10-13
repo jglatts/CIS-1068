@@ -13,11 +13,9 @@ public class Glatts_John_Assignment_4 {
     public static final String storyPath = "story.txt";
     
     /*
-    
     ToDo:
-        - output file for new story + a scanner option asking about it
-        - prompts + clean up the output
-    
+        - myers-bridges jawn
+        - add comments
     */
     public static void main(String[] args) throws FileNotFoundException, IOException {
         Scanner scanner = new Scanner(new File(numbersPath));
@@ -26,15 +24,13 @@ public class Glatts_John_Assignment_4 {
         int[] devArray = new int[]{1, -2, 4, -4, 9, -6, 16, -8, 25, -10}; 
         evenNumbers(scanner, numbersPath.length());
         System.out.println("Stats-File has " + getStats(statsScanner) + " lines of text\n");
-        System.out.println("Std-Dev is: " + stdDev(devArray) + "\n");   // add a prompt for this
+        System.out.println("Std-Dev is: " + stdDev(devArray) + "\n");   
         generateMatrices();
         startStory(storyScanner);
-        // have to add the myers bridge thing 
     }
 
     /* 
             Parse a file and find all the numbers inside
-            Display various stats about the file
     */
     public static void evenNumbers(Scanner scanner, int size) {
         int[] allValues = new int[size+1]; 
@@ -86,43 +82,49 @@ public class Glatts_John_Assignment_4 {
             Return the percent of even numbers from text file  
    */     
     public static double getPercent(int evenCount, int size) {
-        // double check this guy to make sure it's in percent form
         return ((double)evenCount / (double)size) * 100;
     }
     
     /* 
            Parse a text file with strings and display stats 
-                - need to find and print largest line
     */      
     public static int getStats(Scanner statsScanner) {
         int count = 0;
+        String longestString = "";
         while (statsScanner.hasNextLine()) {
-                String str = statsScanner.nextLine(); 
-                System.out.print("Line #" + count + " has " + examineTokens(str) + " tokens, " + "longest = " + getLongestToken(str));
-                System.out.println("");
+                String str = statsScanner.nextLine();
+                int tokens = examineTokens(str);
+                System.out.print("Line #" + (count+1) + " has " + tokens + " tokens, " + "longest token = " + getLongestToken(str));
+                System.out.println(" ");
                 count++;
+                if (tokens > longestString.split(" ").length)
+                    longestString = str;
         }
+        System.out.println("Longest Line Found = " + longestString);
         return count;
     }
-    
+        
     /* 
            Find the number of tokens on each line 
     */      
     public static int examineTokens(String str) {
-        String[] strSplit = str.split(" "); // getting the right values now 
+        // use this guy to also get the longest line
+        String[] strSplit = str.split(" "); 
         return strSplit.length;
     }
     
      /* 
             Find the longest loken of the line 
+            Return the number of tokens
     */     
     public static int getLongestToken(String str) {
         String[] strSplit = str.split(" ");
-        int count = 0, longest = strSplit[0].length();
+        int count = 0, index = 0, longest = strSplit[0].length();
         for (int i = 0; i < strSplit.length; ++i) {
             if (strSplit[i].length() >= longest) {
                     longest = strSplit[i].length();
                     count = longest;
+                    index = i;
             }
         }
         return count;
@@ -132,15 +134,14 @@ public class Glatts_John_Assignment_4 {
         Find and return the standard deviation from a given array
     */
     public static double stdDev(int[] values) {
-        // getting something, but its not right     
-        double sd = 0;
+        double sd = 0.0;
         int average = getSum(values) / values.length;
         System.out.println("The average value of the array is: " + average);
         for (int i = 0; i < values.length; i++) {
             sd += Math.pow(values[i] - average, 2) / values.length;
         }
          return Math.sqrt(sd);
-     }
+     } 
     
      /*
         Generate two 2D arrays
@@ -164,12 +165,9 @@ public class Glatts_John_Assignment_4 {
         Add both matrices together
     */
     public static void addMatrices(int[][] arrOne, int[][] arrTwo) {
-        int sizeOne = arrOne.length;
-        int sizeTwo = arrOne[0].length;
-        int[][] arrThree = new int[sizeOne][sizeTwo];
-        // add the 2 matrices 
-        for (int i = 0; i < sizeOne; ++i) {
-            for (int x = 0; x < sizeTwo; ++x) {
+        int[][] arrThree = new int[arrOne.length][arrOne[0].length];
+        for (int i = 0; i < arrOne.length; ++i) {
+            for (int x = 0; x < arrOne[0].length; ++x) {
                 arrThree[i][x] = arrOne[i][x] + arrTwo[i][x];
             }
         }
@@ -180,11 +178,10 @@ public class Glatts_John_Assignment_4 {
         Print the new matrix
     */
     public static void printMatrices(int[][] arrThree) {
-        int value;
         System.out.println("\nAdded Matrices = ");
         for (int i = 0; i < arrThree.length; ++i) {
             for (int x = 0; x < arrThree[0].length; ++x) {
-                value =arrThree[i][x]; 
+                int value =arrThree[i][x]; 
                 System.out.print(" " + value);
             }
             System.out.println(" ");
@@ -244,18 +241,16 @@ public class Glatts_John_Assignment_4 {
            } 
        }
        printStoryToFile(splitOriginalStory, printStream);
-        System.out.println("\nSaved the story in the file: " + newWords[0]);
+       System.out.println("\nSaved the story at: " + newWords[0]);
    }
    
    /*
-        Print the new strory to the console
-        Formatting looks good, clean up the period 
+        Format and print the new strory to the console
    */
    public static void printStoryToFile(String[] story, PrintStream printStream) {
        for (int x = 0; x < story.length; ++x) {
            if (story[x].equals(".")) {
-               // printing the period way off 
-               printStream.print(story[x]);
+               printStream.print(story[x]);     
                printStream.println(" ");
            }
            else {
@@ -271,7 +266,7 @@ public class Glatts_John_Assignment_4 {
         Scanner scanner = new Scanner(System.in);
         String newStr;
         System.out.println("\nThis is the story program");
-        System.out.print("Please enter a file: ");
+        System.out.print("Please enter a output file, (followed by .txt): ");
         newStr = scanner.next();
         System.out.print("Please enter an adjective: ");
         newStr += " " + scanner.next();
