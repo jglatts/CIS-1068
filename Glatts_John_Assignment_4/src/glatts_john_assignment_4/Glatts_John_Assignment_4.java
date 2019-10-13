@@ -29,16 +29,27 @@ public class Glatts_John_Assignment_4 {
      static int set4_B = 0; // count perception
     
     public static void main(String[] args) throws FileNotFoundException, IOException {
+        // Ch. 6, ex. 2
         Scanner scanner = new Scanner(new File(numbersPath));
-        Scanner statsScanner = new Scanner(new File(tokenPath));
-        Scanner storyScanner = new Scanner(new File(storyPath));
-        int[] devArray = new int[]{1, -2, 4, -4, 9, -6, 16, -8, 25, -10}; 
         evenNumbers(scanner, numbersPath.length());
-        System.out.println("Stats-File has " + getStats(statsScanner) + " lines of text\n");
-        System.out.println("Std-Dev is: " + stdDev(devArray) + "\n");   
-        generateMatrices();
+        
+        // Ch. 6, ex. 17
+        Scanner statsScanner = new Scanner(new File(tokenPath));
+        System.out.println("Stats-File has " + inputStats(statsScanner) + " lines of text\n");
+        
+        // Ch. 6, Programming Project 5
+        Scanner storyScanner = new Scanner(new File(storyPath));        
         startStory(storyScanner);
-        startMyersBriggs(); // kind of working only got one output doe
+        
+        // Ch. 7, ex. 6
+        int[] devArray = new int[]{1, -2, 4, -4, 9, -6, 16, -8, 25, -10}; 
+        System.out.println("Std-Dev is: " + stdDev(devArray) + "\n");   
+        
+        // Ch. 7, ex. 19
+        generateMatrices();
+       
+        // Ch. 7. Programming Project 4 
+        startMyersBriggs(); 
     }
 
     /* 
@@ -100,7 +111,7 @@ public class Glatts_John_Assignment_4 {
     /* 
            Parse a text file with strings and display stats 
     */      
-    public static int getStats(Scanner statsScanner) {
+    public static int inputStats(Scanner statsScanner) {
         int count = 0;
         String longestString = "";
         while (statsScanner.hasNextLine()) {
@@ -170,13 +181,13 @@ public class Glatts_John_Assignment_4 {
             new int[] { 1, 2, 3, 7, 12, 20, 69 },
             new int[] { 1, 2, 3, 7, 12, 20, 69 },
         };       
-        addMatrices(arrOne, arrTwo);
+        matrixAdd(arrOne, arrTwo);
     }
     
      /*
         Add both matrices together
     */
-    public static void addMatrices(int[][] arrOne, int[][] arrTwo) {
+    public static void matrixAdd(int[][] arrOne, int[][] arrTwo) {
         int[][] arrThree = new int[arrOne.length][arrOne[0].length];
         for (int i = 0; i < arrOne.length; ++i) {
             for (int x = 0; x < arrOne[0].length; ++x) {
@@ -318,6 +329,7 @@ public class Glatts_John_Assignment_4 {
           nameOne = input.nextLine();
           System.out.println(nameOne);
           answersOne = input.nextLine().toUpperCase();
+          System.out.println("Input = " + answersOne);
           nameTwo = input.nextLine();
           answersTwo = input.nextLine().toUpperCase();
           calculateMyersBriggsResults(answersOne);
@@ -325,7 +337,8 @@ public class Glatts_John_Assignment_4 {
           // calculate the second user
           resetScores();
           calculateMyersBriggsResults(answersTwo);
-          System.out.println(nameTwo);
+          System.out.println("\n" + nameTwo);
+          System.out.println("Input = " + answersTwo);
           displayResult();
      }
      
@@ -385,6 +398,7 @@ public class Glatts_John_Assignment_4 {
           set4Per = (double) set4_B / (set4_A + set4_B) * 100;
           status += "[" + (int) set1Per + "%, " + (int) set2Per + "%, " + (int) set3Per + "%, " + (int) set4Per + "%] = ";
           status += getStatus(set1Per, 1) + getStatus(set2Per, 2) + getStatus(set3Per, 3) + getStatus(set4Per, 4);
+          System.out.print("Myers-Briggs Score = ");
           System.out.print(status);
           System.out.println();
      }
