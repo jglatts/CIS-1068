@@ -71,11 +71,11 @@ public class Glatts_John_Assignment_4 {
     public static void printNumberInfo(int[] allValues, int index) {
         int evens = countEvens(allValues, index);
         System.out.println("\nLooking at 'numbers.txt'");
-        System.out.printf("\t-File has "+ index + " numbers, sum = " + getSum(allValues));
-        System.out.print(", " + evens + " evens " );
+        System.out.printf(index + " numbers, sum = " + getSum(allValues));
+        System.out.print("\n" + evens + " evens (" );
         // convert to %
         System.out.printf( "%.2f" , getPercent(evens, index));
-        System.out.print("%\n\n");
+        System.out.print("%)\n\n");
     }
     
     /* 
