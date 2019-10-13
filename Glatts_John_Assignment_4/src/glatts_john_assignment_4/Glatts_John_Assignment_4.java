@@ -117,7 +117,7 @@ public class Glatts_John_Assignment_4 {
         while (statsScanner.hasNextLine()) {
                 String str = statsScanner.nextLine();
                 int tokens = examineTokens(str);
-                System.out.print("Line #" + (count+1) + " has " + tokens + " tokens, " + "longest token = " + getLongestToken(str));
+                System.out.print("Line #" + (count+1) + " has " + tokens + " tokens, " + "(longest = " + getLongestToken(str) + ") ");
                 System.out.println(" ");
                 count++;
                 if (tokens > longestString.split(" ").length)
@@ -159,7 +159,7 @@ public class Glatts_John_Assignment_4 {
     public static double stdDev(int[] values) {
         double sd = 0.0;
         int average = getSum(values) / values.length;
-        System.out.println("The average value of the array is: " + average);
+        System.out.println("\nThe average value of the array is: " + average);
         for (int i = 0; i < values.length; i++) {
             sd += Math.pow(values[i] - average, 2) / values.length;
         }
@@ -168,33 +168,32 @@ public class Glatts_John_Assignment_4 {
     
      /*
         Generate two 2D arrays
-        3 x 7
     */
     public static void generateMatrices() {
         int[][] arrOne = new int[][] {
-            new int[] { 1, 2, 3, 7, 12, 20, 69 },
-            new int[] { 1, 2, 3, 7, 12, 20, 69 },
-            new int[] { 1, 2, 3, 7, 12, 20, 69 },
+            new int[] { 1, 2, 3, 7, 12, 20},
+            new int[] { 1, 2, 3, 7, 12, 20},
+            new int[] { 1, 2, 3, 7, 12, 20},
         };
         int[][] arrTwo = new int[][] {
-            new int[] { 1, 2, 3, 7, 12, 20, 69 },
-            new int[] { 1, 2, 3, 7, 12, 20, 69 },
-            new int[] { 1, 2, 3, 7, 12, 20, 69 },
+            new int[] { 1, 2, 3, 7, 12, 20},
+            new int[] { 1, 2, 3, 7, 12, 20},
+            new int[] { 1, 2, 3, 7, 12, 20},
         };       
-        matrixAdd(arrOne, arrTwo);
+        printMatrices(matrixAdd(arrOne, arrTwo));
     }
     
      /*
-        Add both matrices together
+        Add both matrices together and return their sum
     */
-    public static void matrixAdd(int[][] arrOne, int[][] arrTwo) {
+    public static int[][] matrixAdd(int[][] arrOne, int[][] arrTwo) {
         int[][] arrThree = new int[arrOne.length][arrOne[0].length];
         for (int i = 0; i < arrOne.length; ++i) {
             for (int x = 0; x < arrOne[0].length; ++x) {
                 arrThree[i][x] = arrOne[i][x] + arrTwo[i][x];
             }
         }
-        printMatrices(arrThree);
+        return arrThree;
     }
     
     /*
@@ -264,7 +263,7 @@ public class Glatts_John_Assignment_4 {
            } 
        }
        printStoryToFile(splitOriginalStory, printStream);
-       System.out.println("\nSaved the story at: " + newWords[0]);
+       System.out.println("Saved the story at: " + newWords[0]);
    }
    
    /*
@@ -272,6 +271,7 @@ public class Glatts_John_Assignment_4 {
    */
    public static void printStoryToFile(String[] story, PrintStream printStream) {
        for (int x = 0; x < story.length; ++x) {
+           // try and clean up the ugly period 
            if (story[x].equals(".")) {
                printStream.print(story[x]);     
                printStream.println(" ");
@@ -311,8 +311,9 @@ public class Glatts_John_Assignment_4 {
     public static void startMyersBriggs() throws FileNotFoundException {
           Scanner console = new Scanner(System.in);
           File file;
+          System.out.println("\nThis is the Myers-Briggs program.");
           do {
-              System.out.print("\nEnter file name to process: ");
+              System.out.print("Enter file name to process: ");
               String fileName = console.nextLine();
               file = new File(fileName);
           } while (!file.exists());    
@@ -471,7 +472,7 @@ public class Glatts_John_Assignment_4 {
                     || (i - set22) % totalQuestSet == valueZero;        
      }
  
-      /*
+     /*
         Check each input score with the second set
      */
      public static boolean checkSecondSet(int i ) {
