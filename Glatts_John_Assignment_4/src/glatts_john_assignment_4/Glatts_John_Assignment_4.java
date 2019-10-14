@@ -346,41 +346,41 @@ public class Glatts_John_Assignment_4 {
         Update the global vars, the scores, and then display
      */
      public static void calculateMyersBriggsResults(String answer) {
-                  for (int i = 0; i < answer.length(); i++)  {
-                        if ((i == valueZero) || ((i % totalQuestSet == valueZero))) {
-                             if (answer.charAt(i) == 'A') {
-                                  set1_A++;
+            for (int i = 0; i < answer.length(); i++)  {
+                    if ((i == valueZero) || ((i % totalQuestSet == valueZero))) {
+                            if (answer.charAt(i) == 'A') {
+                                    set1_A++;
                              }
                              if (answer.charAt(i) == 'B') {
                                   set1_B++;
                              }
-                        }
-                        else if (checkFirstSet(i)) {
+                     }
+                     else if (checkFirstSet(i)) {
                              if (answer.charAt(i) == 'A'){
                                   set2_A++;
                              }
                              if (answer.charAt(i) == 'B') {
                                   set2_B++;
                              }
-                        }
-                        else if (checkSecondSet(i))  {
+                      }
+                     else if (checkSecondSet(i))  {
                              if (answer.charAt(i) == 'A')  {
                                   set3_A++;
                              }
                              if (answer.charAt(i) == 'B') {
                                   set3_B++;
                              }
-                        }
-                        else {
+                       }
+                      else {
                              if (answer.charAt(i) == 'A') {
                                   set4_A++;
                              }
                              if (answer.charAt(i) == 'B') {
                                   set4_B++;
                              }
-                        }
+                      }
                     }     
-     }
+           }
 
      /*
         Display the results of the Myers-Briggs conversion
