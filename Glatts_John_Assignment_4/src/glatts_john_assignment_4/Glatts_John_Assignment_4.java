@@ -8,6 +8,7 @@ import java.util.Scanner;
         
 public class Glatts_John_Assignment_4 {
     
+    // Necessary Files
     public static final String numbersPath = "numbers.txt";
     public static final String tokenPath = "tokens.txt";
     public static final String storyPath = "story.txt";
@@ -19,14 +20,14 @@ public class Glatts_John_Assignment_4 {
      public static int set31 = 3; 
      public static int set32 = 4; 
      public static int totalQuestSet = 7;
-     static int set1_A = 0; // count extrovert
-     static int set1_B = 0; // count introvert
-     static int set2_A = 0; // count sense
-     static int set2_B = 0; // count intuition
-     static int set3_A = 0; // count thinking
-     static int set3_B = 0; // count feeling
-     static int set4_A = 0; // count judge
-     static int set4_B = 0; // count perception
+     static int set1_A = 0; // count extrovert score
+     static int set1_B = 0; // count introvert score
+     static int set2_A = 0; // count sense score
+     static int set2_B = 0; // count intuition score
+     static int set3_A = 0; // count thinking score
+     static int set3_B = 0; // count feeling score
+     static int set4_A = 0; // count judge score
+     static int set4_B = 0; // count perception score
     
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // Ch. 6, ex. 2
@@ -117,7 +118,7 @@ public class Glatts_John_Assignment_4 {
         while (statsScanner.hasNextLine()) {
                 String str = statsScanner.nextLine();
                 int tokens = examineTokens(str);
-                System.out.print("Line #" + (count+1) + " has " + tokens + " tokens, " + "(longest = " + getLongestToken(str) + ") ");
+                System.out.print("Line " + (count+1) + " has " + tokens + " tokens, " + "(longest = " + getLongestToken(str) + ") ");
                 System.out.println(" ");
                 count++;
                 if (tokens > longestString.split(" ").length)
@@ -142,12 +143,11 @@ public class Glatts_John_Assignment_4 {
     */     
     public static int getLongestToken(String str) {
         String[] strSplit = str.split(" ");
-        int count = 0, index = 0, longest = strSplit[0].length();
+        int count = 0, longest = strSplit[0].length();
         for (int i = 0; i < strSplit.length; ++i) {
             if (strSplit[i].length() >= longest) {
                     longest = strSplit[i].length();
                     count = longest;
-                    index = i;
             }
         }
         return count;
@@ -232,7 +232,7 @@ public class Glatts_John_Assignment_4 {
         int count = 0;
         for (int i = 0; i < allWords.length; ++i) {
             char lastSegment = allWords[i].charAt(allWords[i].length()-1);
-            if (checkForPlaceHolder(allWords[i].charAt(0), lastSegment)) {
+            if (placeHolderExists(allWords[i].charAt(0), lastSegment)) {
                 indices[count] = i;
                 count++;
             }
@@ -243,7 +243,7 @@ public class Glatts_John_Assignment_4 {
     /*
          Check the first and last char of a given string to see if it's a placeholder  
     */      
-    public static boolean checkForPlaceHolder(char firstSegment, char lastSegment) {
+    public static boolean placeHolderExists(char firstSegment, char lastSegment) {
         return firstSegment == '<' && lastSegment == '>';
     }
         
@@ -409,9 +409,9 @@ public class Glatts_John_Assignment_4 {
      public static String getStatus(double percent, int set) {
           if (set == 1) {
               if (percent > 50)
-                   return "I";
-              else if (percent < 50)
                    return "E";
+              else if (percent < 50)
+                   return "I";
               else
                    return "X";
           }
