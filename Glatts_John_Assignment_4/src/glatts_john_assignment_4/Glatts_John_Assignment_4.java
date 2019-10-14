@@ -14,11 +14,11 @@ public class Glatts_John_Assignment_4 {
     
      // Myers - Brigss globals
      public static int valueZero = 0; 
-     public static int set21 = 1; // test the set 2 of 2'nd row of each
-     public static int set22 = 2; // test the set 2 of 3'rd row of each
-     public static int set31 = 3; // test the set 3 of 4'th row of each
-     public static int set32 = 4; // test the set 3 of 5'th row of each
-     public static int totalQuestSet = 7; // to test the last value of
+     public static int set21 = 1; 
+     public static int set22 = 2; 
+     public static int set31 = 3; 
+     public static int set32 = 4; 
+     public static int totalQuestSet = 7;
      static int set1_A = 0; // count extrovert
      static int set1_B = 0; // count introvert
      static int set2_A = 0; // count sense
@@ -200,7 +200,7 @@ public class Glatts_John_Assignment_4 {
         Print the new matrix
     */
     public static void printMatrices(int[][] arrThree) {
-        System.out.println("\nAdded Matrices = ");
+        System.out.println("Added Matrices = ");
         for (int i = 0; i < arrThree.length; ++i) {
             for (int x = 0; x < arrThree[0].length; ++x) {
                 int value =arrThree[i][x]; 
@@ -270,9 +270,9 @@ public class Glatts_John_Assignment_4 {
         Format and print the new strory to the console
    */
    public static void printStoryToFile(String[] story, PrintStream printStream) {
+       String check = "." + '"';
        for (int x = 0; x < story.length; ++x) {
-           // try and clean up the ugly period 
-           if (story[x].equals(".")) {
+           if (story[x].equals(".") || story[x].equals(check)) {
                printStream.print(story[x]);     
                printStream.println(" ");
            }
@@ -313,7 +313,7 @@ public class Glatts_John_Assignment_4 {
           File file;
           System.out.println("\nThis is the Myers-Briggs program.");
           do {
-              System.out.print("Enter file name to process: ");
+              System.out.print("Enter file name to scan: ");
               String fileName = console.nextLine();
               file = new File(fileName);
           } while (!file.exists());    
@@ -335,7 +335,6 @@ public class Glatts_John_Assignment_4 {
           answersTwo = input.nextLine().toUpperCase();
           calculateMyersBriggsResults(answersOne);
           displayResult();
-          // calculate the second user
           resetScores();
           calculateMyersBriggsResults(answersTwo);
           System.out.println("\n" + nameTwo);
@@ -408,7 +407,6 @@ public class Glatts_John_Assignment_4 {
         Check and return the status of the input scores 
      */
      public static String getStatus(double percent, int set) {
-          // if it is set1
           if (set == 1) {
               if (percent > 50)
                    return "I";
