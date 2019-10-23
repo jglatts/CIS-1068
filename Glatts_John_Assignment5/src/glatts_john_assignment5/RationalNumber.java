@@ -2,8 +2,8 @@ package glatts_john_assignment5;
 
 public class RationalNumber {
     
-    private final int numerator;
-    private final int denominator;
+    private int numerator;
+    private int denominator;
     private int gcd;
     
     /*
@@ -15,15 +15,15 @@ public class RationalNumber {
         this.denominator = 1;
     }
     
-    /*
-        Default constructor
-    */    
     public RationalNumber(int numerator, int denominator) throws IllegalArgumentException {
         if (denominator == 0) throw new IllegalArgumentException("\n\tcan't  have 0 in denominator") ;    
-        this.gcd = 0;
         this.gcd = this.greatestCommonDivisor(numerator, denominator);    
-        this.numerator = numerator / this.gcd;
-        this.denominator = denominator / this.gcd;            
+        this.denominator = denominator / this.gcd;
+        this.numerator = numerator / this.gcd;     
+        if (denominator < 0) {
+            this.denominator *= -1;
+            this.numerator *= -1;
+        }            
     }
     
     public int getDenominator() {
@@ -45,5 +45,6 @@ public class RationalNumber {
         if (0 == n) return m;
         else return greatestCommonDivisor(n, m % n);    
     }
+    
         
 }
