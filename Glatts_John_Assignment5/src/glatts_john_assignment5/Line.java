@@ -52,7 +52,7 @@ public class Line {
     */
     public double getSlope() {
        if ((pointTwo.getX() - pointOne.getX()) == 0) throw new IllegalArgumentException("Can't Divide by 0");
-       return (pointTwo.getY() - pointOne.getY()) / (pointTwo.getX() - pointOne.getX());
+       return (double)(pointTwo.getY() - pointOne.getY()) / (pointTwo.getX() - pointOne.getX());
     }
     
     /*
