@@ -51,13 +51,8 @@ public class Line {
         Find and return the slope of the two lines
     */
     public double getSlope() {
-       double slope = 0.0;
-       try {
-                slope =  (pointTwo.getY() - pointOne.getY()) / (pointTwo.getX() - pointOne.getX());
-       } catch (ArithmeticException  e) {
-           System.out.println("Can't Divide by 0 - " + e);
-       }      
-       return slope;
+       if ((pointTwo.getX() - pointOne.getX()) == 0) throw new IllegalArgumentException("Can't Divide by 0");
+       return (pointTwo.getY() - pointOne.getY()) / (pointTwo.getX() - pointOne.getX());
     }
     
     /*
