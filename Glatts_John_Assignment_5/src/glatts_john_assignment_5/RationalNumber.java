@@ -13,6 +13,7 @@ public class RationalNumber {
         this.denominator = 1;
 
     }
+    
     /*
         Constructor with integer parameters
     */    
