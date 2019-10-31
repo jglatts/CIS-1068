@@ -3,7 +3,7 @@ package glatts_john_assignment_6;
 public class DiscountBill extends GroceryBill {
 
     protected boolean isPrefferd;
-    protected int count;
+    protected int count = 0;
     private double totalSavings;
     private double startPrice;
     private double newPrice;
@@ -31,19 +31,13 @@ public class DiscountBill extends GroceryBill {
     
     
     @Override 
-    // Overrides GroceryBill b\c of the discount
     public void addItem(Item i) {
         this.item = i;
-        this.allItems += i.itemName + " ";
-        if (isPrefferd) {
+        if (isPrefferd) { 
             this.oldPrices += "$" + i.price + " ";
             this.applyDiscount();
-            this.allPrices += "$" + i.price + " ";
         }
-        else {
-            this.allPrices += "$" + newPrice + " ";
-        }
-        this.total += i.price;
+        super.addItem(i);
     }
     
     /*
