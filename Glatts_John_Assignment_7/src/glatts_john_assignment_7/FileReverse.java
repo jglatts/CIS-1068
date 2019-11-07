@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class FileReverse {
     
-    protected File file;
-    protected ArrayList<String> list = new ArrayList<>();  
+    private File file;
+    private ArrayList<String> list = new ArrayList<>();  
     
     public FileReverse(File f) throws FileNotFoundException {
         this.file = f;
@@ -24,7 +24,7 @@ public class FileReverse {
     
     public void reverse() {
         ArrayList<String> newList = new ArrayList<>();
-        for(int i = list.size()-1; i > 0; --i)
+        for(int i = list.size()-1; i >= 0; --i)
               newList.add(list.get(i));
         this.list = newList;
     }
