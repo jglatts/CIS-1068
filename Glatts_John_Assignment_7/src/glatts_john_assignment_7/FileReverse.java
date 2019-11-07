@@ -24,8 +24,7 @@ public class FileReverse {
     
     public void reverse() {
         ArrayList<String> newList = new ArrayList<>();
-        int count = 0;
-        for(int i = list.size()-1; i > 0; --i, ++count)
+        for(int i = list.size()-1; i > 0; --i)
               newList.add(list.get(i));
         this.list = newList;
     }
