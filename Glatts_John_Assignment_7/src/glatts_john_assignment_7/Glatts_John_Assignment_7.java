@@ -1,17 +1,21 @@
 package glatts_john_assignment_7;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Glatts_John_Assignment_7 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.println();
         checkSwapPairs();
         System.out.println();
         checkDuplicates();
         System.out.println();
         checkStutter();
+        System.out.println();
+        checkFileReverse();
     }
     
     public static void checkSwapPairs() {
@@ -39,8 +43,9 @@ public class Glatts_John_Assignment_7 {
     
     public static void printList(ArrayList<String> list, String s) {
         System.out.print(s);
-        for (String i : list)
+        list.forEach((i) -> {
             System.out.print(i + " ");
+        });
         System.out.println();
     }
     
@@ -95,5 +100,13 @@ public class Glatts_John_Assignment_7 {
         printList(a, "The list after removing duplicates: ");
     }
     
+    public static void checkFileReverse() throws FileNotFoundException {
+        System.out.println("The Original File = ");
+        FileReverse f = new FileReverse(new File("test.txt"));
+        f.printFile();
+        f.reverse();
+        System.out.println("\nThe Reversed File = ");
+        f.printFile();
+    }
     
 }
