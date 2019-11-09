@@ -7,9 +7,6 @@ import java.util.Scanner;
 
 public class Person {
 
-  /*
-    Prolly don't need the extra classes -- just but data and methods in this one
-  */  
    private final File famFile; 
    private String name = "";
    private final ArrayList<String> paternalLine = new ArrayList<>();
