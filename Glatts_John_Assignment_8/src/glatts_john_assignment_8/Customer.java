@@ -7,10 +7,16 @@ public class Customer extends Person implements Comparable{
     
     /***** Add the Default Constructors *****/
     
+    
     public Customer(String f, String l, int a, String c, String s,  int z, int cID, double g) {
         super(f, l, a, c, s, z);
         this.customerID = cID;
         this.grossSales = g;
+    }
+    
+    public Customer(String s) {
+        super(s);  // debug this
+        this.copyCSV(s);
     }
     
     /**
