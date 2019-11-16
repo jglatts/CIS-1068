@@ -1,5 +1,11 @@
 package glatts_john_assignment_8;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class CustomerList {
     
     private int size;
@@ -65,9 +71,58 @@ public class CustomerList {
             // have to do more here, tweak the array 
             Customer t = custArray[i];
             custArray[i] = null;
+            // call a method to tweak the Array here
             return t;
         }    
         return null;
+    }
+    
+    @Override
+    public String toString() {
+        String s = "";
+        double total = 0;
+        for (Customer c : custArray) {
+            s += c.toString();
+            total += c.getGrossSales();
+        }
+        return s + " Total Gross Sales = " + total;
+    }
+    
+    public static CustomerList read(String fileName) throws FileNotFoundException {
+        File custInput = new File(fileName);
+        Scanner scan = new Scanner(custInput);
+        CustomerList newList = new CustomerList((int)custInput.length());
+        if (custInput.exists()) {
+            while (scan.hasNextLine()) {
+                try {
+                    String csv = scan.nextLine();
+                    Customer c = new Customer(csv);
+                    newList.add(c);
+                } catch(Exception e) {
+                    System.out.println("Something went wrong :(");
+                }
+            }
+        return newList;    
+        }
+        else return null;
+    }
+    
+    public boolean write(CustomerList cList, String f) throws FileNotFoundException {
+        PrintStream output = new PrintStream(new File(f));
+        try {
+            // use a for each loop here if applicable
+            for (int i = 0; i < cList.size(); ++i) {
+                output.println(cList.get(i).toCSV());
+            }    
+            return true;
+        } catch(Exception e) {
+            System.out.println("Something went wrong :(");
+        }        
+        return false;
+    }
+    
+    public void sort() {
+        Arrays.sort(custArray);
     }
             
 }
