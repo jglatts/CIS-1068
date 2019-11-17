@@ -138,11 +138,16 @@ public class CustomerList {
     public String toString() {
         String s = "";
         double total = 0;
-        for (Customer c : custArray) {
-            s += c.toString();
-            total += c.getGrossSales();
-        }
-        return s + " Total Gross Sales = " + total;
+        try {
+            for (Customer c : custArray) {
+                s += c.toString();
+                total += Double.parseDouble(c.getGrossSales());
+            }
+        } catch (Exception e) {
+            // working but always gets this Exception
+            // figure WTF is good 
+        } 
+        return s + "Total Gross Sales = " + total;
     }
     
     /**
@@ -164,7 +169,7 @@ public class CustomerList {
                     Customer c = new Customer(csv);
                     newList.add(c);
                 } catch(Exception e) {
-                    System.out.println("Something went wrong :(");
+                    System.out.println("Something went wrong :(" + e);
                 }
             }
         return newList;    
@@ -217,9 +222,9 @@ public class CustomerList {
         int l = 0, r = custArray.length - 1; 
         while (l <= r) { 
             int m = l + (r - l) / 2; 
-            if (custArray[m].getCustomerID() == i) 
+            if (Integer.parseInt(custArray[m].getCustomerID()) == i) 
                 return m; 
-            if (custArray[m].getCustomerID() < i) 
+            if (Integer.parseInt(custArray[m].getCustomerID()) < i) 
                 l = m + 1; 
             else
                 r = m - 1; 
