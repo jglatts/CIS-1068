@@ -12,8 +12,8 @@ package glatts_john_assignment_8;
  */
 public class Customer extends Person implements Comparable{
     
-    private int customerID;
-    private double grossSales;
+    private String customerID;
+    private String grossSales;
     
     /**
      * Constructor with all the data passed in as parameters
@@ -26,7 +26,7 @@ public class Customer extends Person implements Comparable{
      * @param cID, customerID of customer
      * @param g, grossSales of customer 
      */
-    public Customer(String f, String l, int a, String c, String s,  int z, int cID, double g) {
+    public Customer(String f, String l, String a, String c, String s,  String z, String cID, String g) {
         super(f, l, a, c, s, z);
         this.customerID = cID;
         this.grossSales = g;
@@ -44,14 +44,14 @@ public class Customer extends Person implements Comparable{
     /**
      * Getters
      */
-    public int getCustomerID() { return customerID; }
-    public double getGrossSales() { return grossSales; }
+    public String getCustomerID() { return customerID; }
+    public String getGrossSales() { return grossSales; }
     
     /**
      * Setters
      */
-    public void setCustomerID(int c) { this.customerID = c; }
-    public void setGrossSales(double d) { this.grossSales = d; }
+    public void setCustomerID(String c) { this.customerID = c; }
+    public void setGrossSales(String d) { this.grossSales = d; }
 
     @Override
     public String toString() {
@@ -59,7 +59,7 @@ public class Customer extends Person implements Comparable{
         s = "CustomerID: " + customerID + "\n";
         s += "GrossSales: " + grossSales + "\n";
         s += super.toString();
-        return s;
+        return s + "\n";
     }
     
     @Override
@@ -75,8 +75,8 @@ public class Customer extends Person implements Comparable{
      * @return the value indicating which customer ID is smaller
      */
     public int compareTo(Customer c) {
-        if (this.customerID > c.getCustomerID()) return -1;
-        if (this.customerID < c.getCustomerID()) return 1;
+        if (Integer.parseInt(customerID) > Integer.parseInt(c.getCustomerID())) return -1;
+        if (Integer.parseInt(customerID) < Integer.parseInt(c.getCustomerID())) return 1;
         return 0;
     }
     
@@ -89,9 +89,9 @@ public class Customer extends Person implements Comparable{
         this.grossSales = c.getCustomerID();
         super.setFirstName(c.getFirstName()); 
         super.setLastName(c.getLastName());
-        super.setAddress(c.getAddress(true));
+        super.setAddress(c.getAddress());
         super.setCity(c.getCity());
-        super.setZipCode(c.getZipCode(true));
+        super.setZipCode(c.getZipCode());
     }
     
     /**
@@ -100,20 +100,20 @@ public class Customer extends Person implements Comparable{
      */
     public void copyCSV(String s) {
         String[] data = s.split(", ");
-        this.customerID = Integer.parseInt(data[0]);
-        this.grossSales = Double.parseDouble(data[1]);
+        this.customerID = data[0];
+        this.grossSales = data[1];
         super.setFirstName(data[2]);
         super.setLastName(data[3]);
-        super.setAddress(Integer.parseInt(data[4]));
+        super.setAddress(data[4]);
         super.setCity(data[5]);
         super.setState(data[6]);
-        super.setZipCode(Integer.parseInt(data[7]));
+        super.setZipCode(data[7]);
     }
     
     @Override
     public Customer clone() throws CloneNotSupportedException {
-        return new Customer(super.getFirstName(), super.getLastName(), super.getAddress(true), 
-                            super.getCity(), super.getState(), super.getZipCode(true), customerID, grossSales);
+        return new Customer(super.getFirstName(), super.getLastName(), super.getAddress(), 
+                            super.getCity(), super.getState(), super.getZipCode(), customerID, grossSales);
     }
 
     @Override
