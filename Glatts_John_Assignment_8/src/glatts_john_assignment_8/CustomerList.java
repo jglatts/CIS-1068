@@ -56,7 +56,7 @@ public class CustomerList {
      * @return the customer if it exists, null otherwise
      */
     public Customer get(int i) {
-        if (i < (size-1))
+        if (i < size)
             return custArray[i];
         return null;
     }
@@ -187,7 +187,7 @@ public class CustomerList {
             }    
             return true;
         } catch(Exception e) {
-            System.out.println("Something went wrong :(");
+            System.out.println("Something went wrong :(" + e);
         }        
         return false;
     }
