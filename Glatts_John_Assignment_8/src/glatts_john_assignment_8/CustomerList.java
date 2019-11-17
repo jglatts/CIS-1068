@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class CustomerList {
     
     private int size;
+    private int idx = 0;
     private Customer[] custArray;
     
     public CustomerList() {
@@ -43,7 +44,10 @@ public class CustomerList {
         Customer[] tempArray;
 
         if(custArray[size-1] == null) {
-            custArray[size-1] = c;
+            if (idx < size) {
+                custArray[idx] = c;
+                idx++;
+            }    
         }
         else {
             // prolly have to tweak this
@@ -110,7 +114,6 @@ public class CustomerList {
     public boolean write(CustomerList cList, String f) throws FileNotFoundException {
         PrintStream output = new PrintStream(new File(f));
         try {
-            // use a for each loop here if applicable
             for (int i = 0; i < cList.size(); ++i) {
                 output.println(cList.get(i).toCSV());
             }    
@@ -123,6 +126,21 @@ public class CustomerList {
     
     public void sort() {
         Arrays.sort(custArray);
+    }
+    
+    public int indexOf(int i) {
+        this.sort();    
+        int l = 0, r = custArray.length - 1; 
+        while (l <= r) { 
+            int m = l + (r - l) / 2; 
+            if (custArray[m].getCustomerID() == i) 
+                return m; 
+            if (custArray[m].getCustomerID() < i) 
+                l = m + 1; 
+            else
+                r = m - 1; 
+        } 
+        return -1;
     }
             
 }
