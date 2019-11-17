@@ -200,15 +200,11 @@ public class CustomerList {
     /**
      * Sort the CustomerList by CustomerID
      * 
-     * ----NOT WORKING----
-     * 
      */
     public void sort() {
         for (int i = 0; i < size-1; ++i) {
             for (int x = 0; x < size-i-1; ++x) {
-                int val = custArray[x].compareTo(custArray[x+1]);
-                System.out.println("Comparing: " + custArray[x].getCustomerID() + " and: " + custArray[x+1].getCustomerID() + " --> " + val);
-                if (val > 0) {
+                if (custArray[x].compareTo(custArray[x+1]) > 0) {
                     Customer temp = custArray[x];
                     custArray[x] = custArray[x+1];
                     custArray[x+1] = temp;                
