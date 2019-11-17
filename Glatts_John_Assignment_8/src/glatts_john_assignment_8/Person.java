@@ -1,5 +1,10 @@
 package glatts_john_assignment_8;
 
+/**
+ * Person Class
+ *  - Contains data for other classes to inherit
+ * @author johng
+ */
 public class Person {
 
     private String firstName;
@@ -25,6 +30,10 @@ public class Person {
         this.city = c;
         this.state = s;
         this.zipCode = z;
+    }
+    
+    public Person(String s) {
+        
     }
 
     /**
