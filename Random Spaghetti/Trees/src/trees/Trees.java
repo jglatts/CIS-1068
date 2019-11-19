@@ -30,12 +30,22 @@ package trees;
 public class Trees {
 
     public static void main(String[] args) {
-        BinaryTree b = new BinaryTree();
-        b.root = new Node(20);
-        b.root.left = new Node(15);
-        b.root.right = new Node(37);
-        b.root.right.right = new Node(48);
-        b.root.right.left = new Node(30);
+        Node root = new Node(5);
+        root.left = new Node(3);
+        root.right = new Node(8);
+        root.right.left = new Node(5);
+        root.right.right = new Node(13);
+        root.left.left = new Node(1);
+        root.left.right = new Node(4);
+        System.out.println("Searching a binary tree!! Is the value in the tree? " + ifNodeExists(root, 4));
+        System.out.println("Searching a binary tree!! Is the value in the tree? " + ifNodeExists(root, 24));
     }
     
+    public static boolean ifNodeExists(Node b, int val) {
+        if (b == null) return false;  
+        if (b.key == val) return true;  
+        boolean res1 = ifNodeExists(b.left, val);  
+        boolean res2 = ifNodeExists(b.right, val);  
+        return res1 || res2;  
+    }              
 }
