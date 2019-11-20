@@ -23,6 +23,8 @@
  */
 package trees;
 
+import java.util.Arrays;
+
 /**
  *
  * @author johng
@@ -39,6 +41,12 @@ public class Trees {
         root.left.right = new Node(4);
         System.out.println("Searching a binary tree!! Is the value in the tree? " + ifNodeExists(root, 4));
         System.out.println("Searching a binary tree!! Is the value in the tree? " + ifNodeExists(root, 24));
+        System.out.println("There are " + root.count + " nodes");
+        
+        int[] arr = {69, 56, 34, 21, 7, 31, 20, 1, 4};
+        Arrays.sort(arr);
+        System.out.println("" + Arrays.toString(arr));
+        System.out.println("The index of 20 is " + binarySearch(arr, 0, arr.length-1, 20));
     }
     
     public static boolean ifNodeExists(Node b, int val) {
@@ -48,4 +56,18 @@ public class Trees {
         boolean res2 = ifNodeExists(b.right, val);  
         return res1 || res2;  
     }              
+    
+    public static int binarySearch(int[] arr, int min, int max, int value) {
+        if (min >= min) {
+            int mid = (max+1)/2;
+            if (arr[mid] == value){ 
+                return mid;
+            }    
+            if (arr[mid] > value) {
+                return binarySearch(arr, min, max-1, value);
+            }
+            return binarySearch(arr, min+1, max, value);
+        }
+        return -1;
+    }
 }
