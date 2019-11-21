@@ -128,22 +128,19 @@ public class CustomerList {
      * 
      * @param i, the index to remove the customer
      * @return the customer if completed, null otherwise
-     * 
-     *  Only seems to be working when higher index is called first
-     * 
      */
     public Customer remove(int i) {
         Customer t;
-        if (i == size-1) {
+        if (i == (size-1)) {
             size--;
             t = custArray[i];
             custArray[i] = null;
             return t;
         }
         if (i < size) {
-            size--;
             t = custArray[i];
             custArray[i] = null;
+            size--;
             for (int x = i; x < size; ++x) {
                 custArray[x] = custArray[x+1];
             } 
@@ -257,7 +254,15 @@ public class CustomerList {
         } 
         return -1;
     }
-    
+
+    /**
+     *  Update the grossSales of a given customer
+     *  Seems to be working and not working at same time
+     * 
+     * @param id, the customerID
+     * @param amount, the amount to add to grossSales
+     * @return true if successful, false otherwise
+     */
     public boolean update(String id, String amount) {
         int idx = indexOf(Integer.parseInt(id));
         if (idx > 0) {
