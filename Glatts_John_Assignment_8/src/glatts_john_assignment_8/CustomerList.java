@@ -3,7 +3,6 @@ package glatts_john_assignment_8;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -15,14 +14,22 @@ import java.util.Scanner;
  *  - Check all methods for completion
  *  - Make sure the file read/write are working
  *      - seem to be getting a 'off-by-one' error on the write()
+ *  - Work o Sorting Algs.
+ *  
+ *  - Add update(id, amt) function
+ *      - pass in  custID and amount to add to grossSales
  * 
  * @author johng
  */
 
 public class CustomerList {
     
+    /*
+        Can only be 2 fields , get rid of extras
+    */
     private int size;
     private int idx = 0;
+    private boolean sortCheck = false;
     private Customer[] custArray;
     
     /**
@@ -91,6 +98,7 @@ public class CustomerList {
             idx++;
         }
         else {
+            // tweak this guy
             int lastIndex = findLastIndex();
             size *= 2;
             tempArray = new Customer[size];
@@ -117,22 +125,32 @@ public class CustomerList {
     
     /**
      * Remove the customer at the given index from the list
+     * 
      * @param i, the index to remove the customer
      * @return the customer if completed, null otherwise
      * 
-     *  ToDo
-     *      - change the size of the array after a remove() is called
-     *          - i.e, swawp every value to i+1 indices
+     *  Only seems to be working when higher index is called first
      * 
      */
     public Customer remove(int i) {
-        if (i < findLastIndex()) {
-            Customer t = custArray[i];
+        Customer t;
+        if (i == size-1) {
+            size--;
+            t = custArray[i];
             custArray[i] = null;
             return t;
-        }    
+        }
+        if (i < size) {
+            size--;
+            t = custArray[i];
+            custArray[i] = null;
+            for (int x = i; x < size; ++x) {
+                custArray[x] = custArray[x+1];
+            } 
+            return t;
+        } 
         return null;
-    }
+    }    
     
     @Override
     public String toString() {
@@ -144,8 +162,8 @@ public class CustomerList {
                 total += Double.parseDouble(c.getGrossSales());
             }
         } catch (Exception e) {
-            // working but always gets this Exception
-            // figure WTF is good 
+            // always get this nullPointer exception!!!!
+            System.out.println("Error Here (at CustomerList.toString()) --> " + e);
         } 
         return s + "Total Gross Sales = " + total;
     }
@@ -192,14 +210,14 @@ public class CustomerList {
             }    
             return true;
         } catch(Exception e) {
-            System.out.println("Something went wrong :(" + e);
-        }        
+            System.out.println("Something went wrong (at CustomerList.write())" + e);
+        }  
         return false;
     }
     
     /**
      * Sort the CustomerList by CustomerID
-     * 
+     *  - Uses bubble sort
      */
     public void sort() {
         for (int i = 0; i < size-1; ++i) {
@@ -211,6 +229,7 @@ public class CustomerList {
                 } 
             }
         }
+        sortCheck = true;
     }
     
     /**
@@ -220,12 +239,13 @@ public class CustomerList {
      * 
      *  ----ToDo----
      *      -  add the new value if it doesn't already exist
+     *          - and return the insertion point
      *      -  then update the array (change its size/indices etc...)
      * 
      */
     public int indexOf(int i) {
-        this.sort();    
         int l = 0, r = custArray.length - 1; 
+        if (!sortCheck) this.sort();    
         while (l <= r) { 
             int m = l + (r - l) / 2; 
             if (Integer.parseInt(custArray[m].getCustomerID()) == i) 
@@ -236,6 +256,16 @@ public class CustomerList {
                 r = m - 1; 
         } 
         return -1;
+    }
+    
+    public boolean update(String id, String amount) {
+        int idx = indexOf(Integer.parseInt(id));
+        if (idx > 0) {
+            double newVal = Double.parseDouble(custArray[idx].getGrossSales()) + Double.parseDouble(amount);
+            custArray[idx].setGrossSales(newVal + "");
+            return true;
+        }
+        return false;
     }
             
 }
