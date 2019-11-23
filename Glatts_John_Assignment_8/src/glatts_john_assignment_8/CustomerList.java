@@ -24,12 +24,7 @@ import java.util.Scanner;
 
 public class CustomerList {
     
-    /*
-        Can only be 2 fields , get rid of extras
-    */
     private int size;
-    private int idx = 0;
-    private boolean sortCheck = false;
     private Customer[] custArray;
     
     /**
@@ -39,6 +34,8 @@ public class CustomerList {
     public CustomerList() {
         this.size = 4;
         custArray = new Customer[4];
+        for (int i = 0; i < size; ++i) 
+            custArray[i] = null;        
     }
     
     /**
@@ -48,6 +45,8 @@ public class CustomerList {
     public CustomerList(int i) {
         this.size = i;
         custArray = new Customer[i];
+        for (int x = 0; x < size; ++x) 
+            custArray[x] = null;
     }
     
     /**
@@ -64,7 +63,7 @@ public class CustomerList {
      */
     public Customer get(int i) {
         if (i < size)
-            return custArray[i];
+            return custArray[i];        
         return null;
     }
     
@@ -87,27 +86,42 @@ public class CustomerList {
      * If the array is full, make a new array twice the size 
      * and transfer the data
      * 
-     *  - DOUBLE CHECK THIS GUY
-     * 
      * @param c, the customer to add
      */
     public void add(Customer c) {
-        Customer[] tempArray;
-        if(custArray[size-1] == null) {
-            custArray[idx] = c;
-            idx++;
-        }
-        else {
-            // tweak this guy
-            int lastIndex = findLastIndex();
-            size *= 2;
-            tempArray = new Customer[size];
-            tempArray = custArray;
-            custArray = new Customer[size];
-            custArray = tempArray;
-            custArray[lastIndex] = c;
-        }
+        if(custArray[size-1] == null) addCustomer(c);
+        else makeTempArray(c);
     }
+    
+    /**
+     * Find the first empty index in the list and add the new customer
+     * 
+     * @param c, the customer to add 
+     */
+    private void addCustomer(Customer c) {
+        for (int i = 0; i < size; ++i) {
+            if (custArray[i] == null) {
+                custArray[i] = c;
+                break;
+            }    
+        }    
+    }
+    
+    /**
+     * Make a new array twice the size of OG and insert new value
+     * 
+     * @param c, the customer to add 
+     */
+    private void makeTempArray(Customer c) {
+        Customer[] tempArray;
+        int lastIndex = findLastIndex();
+        size *= 2;
+        tempArray = new Customer[size];
+        tempArray = custArray;
+        custArray = new Customer[size];
+        custArray = tempArray;
+        custArray[lastIndex+1] = c;    
+    } 
     
     /**
      * Find the the last index of array that has a value
@@ -156,11 +170,11 @@ public class CustomerList {
         try {
             for (Customer c : custArray) {
                 s += c.toString();
-                total += Double.parseDouble(c.getGrossSales());
+                total += c.getGrossSales();
             }
         } catch (Exception e) {
             // always get this nullPointer exception!!!!
-            System.out.println("Error Here (at CustomerList.toString()) --> " + e);
+            //System.out.println("Error Here (at CustomerList.toString()) --> " + e);
         } 
         return s + "Total Gross Sales = " + total;
     }
@@ -184,7 +198,7 @@ public class CustomerList {
                     Customer c = new Customer(csv);
                     newList.add(c);
                 } catch(Exception e) {
-                    System.out.println("Something went wrong :(" + e);
+                    //System.out.println("Something went wrong :(" + e);
                 }
             }
         return newList;    
@@ -194,12 +208,13 @@ public class CustomerList {
     
     /**
      * Write the current CustomerList to the given file
+     * 
      * @param cList, the CustomerList to write to file
      * @param f, the file to write to
      * @return true if completed, false otherwise
      * @throws FileNotFoundException 
      */
-    public boolean write(CustomerList cList, String f) throws FileNotFoundException {
+    public static boolean write(CustomerList cList, String f) throws FileNotFoundException {
         PrintStream output = new PrintStream(new File(f));
         try {
             for (int i = 0; i < cList.size(); ++i) {
@@ -215,18 +230,24 @@ public class CustomerList {
     /**
      * Sort the CustomerList by CustomerID
      *  - Uses bubble sort
+     *  - try and use more effiecent alg.
      */
     public void sort() {
-        for (int i = 0; i < size-1; ++i) {
-            for (int x = 0; x < size-i-1; ++x) {
-                if (custArray[x].compareTo(custArray[x+1]) > 0) {
-                    Customer temp = custArray[x];
-                    custArray[x] = custArray[x+1];
-                    custArray[x+1] = temp;                
-                } 
-            }
+        try {
+            for (int i = 0; i < size-1; ++i) {
+                for (int x = 0; x < size-i-1; ++x) {
+                    if (custArray[i].compareTo(custArray[x]) < 0) {
+                        Customer temp = custArray[i];
+                        custArray[i] = custArray[x];
+                        custArray[x] = temp;                
+                    } 
+                }
+            }        
+        } catch (Exception e) {
+            // Throws null pointer
+            //System.out.println(e);
         }
-        sortCheck = true;
+
     }
     
     /**
@@ -238,38 +259,27 @@ public class CustomerList {
      *      -  add the new value if it doesn't already exist
      *          - and return the insertion point
      *      -  then update the array (change its size/indices etc...)
-     * 
      */
     public int indexOf(int i) {
-        int l = 0, r = custArray.length - 1; 
-        if (!sortCheck) this.sort();    
-        while (l <= r) { 
-            int m = l + (r - l) / 2; 
-            if (Integer.parseInt(custArray[m].getCustomerID()) == i) 
-                return m; 
-            if (Integer.parseInt(custArray[m].getCustomerID()) < i) 
-                l = m + 1; 
-            else
-                r = m - 1; 
-        } 
+        for (int x = 0; x < size; ++x)
+            if (custArray[x].getCustomerID() == i)
+                return x;
         return -1;
     }
 
     /**
      *  Update the grossSales of a given customer
-     *  Seems to be working and not working at same time
      * 
      * @param id, the customerID
      * @param amount, the amount to add to grossSales
      * @return true if successful, false otherwise
      */
-    public boolean update(String id, String amount) {
-        int idx = indexOf(Integer.parseInt(id));
+    public boolean update(int id, double amount) {
+        int idx = indexOf(id);
         if (idx > 0) {
-            double newVal = Double.parseDouble(custArray[idx].getGrossSales()) + Double.parseDouble(amount);
-            custArray[idx].setGrossSales(newVal + "");
-            return true;
-        }
+                custArray[idx].setGrossSales(custArray[idx].getGrossSales() + amount);
+                return true;                
+        }        
         return false;
     }
             

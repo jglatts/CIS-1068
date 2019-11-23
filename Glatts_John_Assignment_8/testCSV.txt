@@ -1,0 +1,4 @@
+3, 20.0, John, Glatts, 2009, Jamison, PA, 18929
+2, 420.0, George, Glatts, 2009, Jamison, PA, 18929
+1, 20.0, Stef, Glatts, 2009, Jamison, PA, 18929
+0, 120.0, Dolores, Glatts, 2009, Jamison, PA, 18929

@@ -1,0 +1,987 @@
+run:
+Read file
+Read: 100 records
+CustomerID: 92
+GrossSales: 1838.0
+FirstName:  Edward
+LastName:   Aguimba
+Address:    444 Propsect St
+City:       Streamwood
+State:      IL
+ZipCode:    60107
+
+CustomerID: 48
+GrossSales: 933.0
+FirstName:  Deanna
+LastName:   Allen
+Address:    766 Willow Ridge Dr
+City:       Demotte
+State:      IN
+ZipCode:    46310
+
+CustomerID: 36
+GrossSales: 1516.0
+FirstName:  Christian
+LastName:   Annamanaidu
+Address:    213 N. College Dr.
+City:       Omaha
+State:      NE
+ZipCode:    68127
+
+CustomerID: 52
+GrossSales: 4191.0
+FirstName:  Mike
+LastName:   Azure
+Address:    304 Combs
+City:       Mendon
+State:      NY
+ZipCode:    14606
+
+CustomerID: 96
+GrossSales: 1454.0
+FirstName:  Jerry
+LastName:   Bawa
+Address:    315 Newport Lane
+City:       Rockville
+State:      MD
+ZipCode:    20850
+
+CustomerID: 126
+GrossSales: 1094.0
+FirstName:  Steve
+LastName:   Beemer
+Address:    1234 Main St
+City:       Watertown
+State:      CT
+ZipCode:    6795
+
+CustomerID: 38
+GrossSales: 2743.0
+FirstName:  Aneta
+LastName:   Beier
+Address:    8204 Anderson Road
+City:       Temple
+State:      TX
+ZipCode:    76504
+
+CustomerID: 82
+GrossSales: 1980.0
+FirstName:  Dinesh
+LastName:   Boan
+Address:    11582 Rusk Cove
+City:       Charlotte
+State:      NC
+ZipCode:    28270
+
+CustomerID: 89
+GrossSales: 3492.0
+FirstName:  Joseph
+LastName:   Boswell
+Address:    3131 E. Holcombe Blvd
+City:       Shelton
+State:      CT
+ZipCode:    6484
+
+CustomerID: 117
+GrossSales: 3548.0
+FirstName:  Kirk
+LastName:   Bounds
+Address:    1818 South 43Rd Street
+City:       Collinsville
+State:      IL
+ZipCode:    62234
+
+CustomerID: 108
+GrossSales: 4961.0
+FirstName:  Vito
+LastName:   Broadhurst
+Address:    300 30Th Ave. N. Apt. 4C
+City:       Fennimore
+State:      WI
+ZipCode:    53809
+
+CustomerID: 60
+GrossSales: 4371.0
+FirstName:  Scott
+LastName:   Brown
+Address:    919  137Th Avenue Ne
+City:       Kansas City
+State:      KS
+ZipCode:    66102
+
+CustomerID: 124
+GrossSales: 1996.0
+FirstName:  Cameron
+LastName:   Bruch
+Address:    10925 South Bryant
+City:       Addison
+State:      TX
+ZipCode:    75001
+
+CustomerID: 120
+GrossSales: 3391.0
+FirstName:  Alex
+LastName:   Bucella
+Address:    3451 Fairway Commons Dr
+City:       Colorado Springs
+State:      CO
+ZipCode:    80907
+
+CustomerID: 66
+GrossSales: 673.0
+FirstName:  Bry
+LastName:   Buford
+Address:    540 W North West Highway
+City:       New York
+State:      NY
+ZipCode:    10005
+
+CustomerID: 79
+GrossSales: 963.0
+FirstName:  Simon
+LastName:   Chang
+Address:    8317 Cabin Creek Drive
+City:       Oshkosh
+State:      WI
+ZipCode:    54901
+
+CustomerID: 109
+GrossSales: 4167.0
+FirstName:  Tom
+LastName:   Chansa
+Address:    123 Sfsdfsdfsdf
+City:       Sacramento
+State:      CA
+ZipCode:    95820-4617
+
+CustomerID: 95
+GrossSales: 826.0
+FirstName:  Walter
+LastName:   Cheboli
+Address:    4260 Nw 32 Street
+City:       Mankato
+State:      MN
+ZipCode:    56002
+
+CustomerID: 87
+GrossSales: 3123.0
+FirstName:  Becky
+LastName:   Chen
+Address:    2605 Hawthorne Ave
+City:       Southgate
+State:      MI
+ZipCode:    48195
+
+CustomerID: 125
+GrossSales: 4020.0
+FirstName:  Leslie
+LastName:   Chism
+Address:    123 Main St
+City:       Roy
+State:      UT
+ZipCode:    84067
+
+CustomerID: 91
+GrossSales: 1488.0
+FirstName:  Usha
+LastName:   Cummings
+Address:    12033 Foundation Place
+City:       Greenville
+State:      TX
+ZipCode:    75401
+
+CustomerID: 83
+GrossSales: 1874.0
+FirstName:  Tai-yen
+LastName:   Dalton
+Address:    115 Tower Drive
+City:       Round Rock
+State:      TX
+ZipCode:    78681
+
+CustomerID: 132
+GrossSales: 2305.0
+FirstName:  Jody
+LastName:   Daniel
+Address:    1 Enterprise Dr
+City:       Phoenix
+State:      AZ
+ZipCode:    85032
+
+CustomerID: 53
+GrossSales: 3104.0
+FirstName:  Donald
+LastName:   Dardac
+Address:    4232 Judah
+City:       Irving
+State:      TX
+ZipCode:    75038
+
+CustomerID: 54
+GrossSales: 2430.0
+FirstName:  Jose
+LastName:   Deguzman
+Address:    4168 Woodland Road
+City:       Brooklyn
+State:      NY
+ZipCode:    11226
+
+CustomerID: 121
+GrossSales: 2509.0
+FirstName:  Bob
+LastName:   Demith
+Address:    20 Carlsbad Rd.
+City:       New York
+State:      NY
+ZipCode:    10007
+
+CustomerID: 119
+GrossSales: 2881.0
+FirstName:  Greg
+LastName:   Donahoe
+Address:    P. O. Box 2600
+City:       St. Paul
+State:      MN
+ZipCode:    55101
+
+CustomerID: 98
+GrossSales: 2072.0
+FirstName:  Billy
+LastName:   Duvall
+Address:    Box 123
+City:       Fremont
+State:      CA
+ZipCode:    94536
+
+CustomerID: 130
+GrossSales: 1149.0
+FirstName:  Christy
+LastName:   fedor
+Address:    Beltline Road
+City:       Austin
+State:      TX
+ZipCode:    78745
+
+CustomerID: 39
+GrossSales: 3738.0
+FirstName:  Philip
+LastName:   Fernandes
+Address:    136 Gales Drive
+City:       Richmond Hts
+State:      OH
+ZipCode:    44143
+
+CustomerID: 67
+GrossSales: 598.0
+FirstName:  Mark
+LastName:   Fritz
+Address:    16 Erie
+City:       Hosuton
+State:      TX
+ZipCode:    77077
+
+CustomerID: 115
+GrossSales: 3338.0
+FirstName:  John
+LastName:   Gagne
+Address:    2156 Glencoe Hills Drive.# 6
+City:       Sumter
+State:      SC
+ZipCode:    29154
+
+CustomerID: 80
+GrossSales: 4409.0
+FirstName:  Chong
+LastName:   Garcia
+Address:    28000 Dequindre
+City:       Fairfax
+State:      VA
+ZipCode:    22033
+
+CustomerID: 127
+GrossSales: 3835.0
+FirstName:  Dhananjay
+LastName:   Garcia
+Address:    9211 Garland
+City:       Columbus
+State:      OH
+ZipCode:    43216
+
+CustomerID: 122
+GrossSales: 2463.0
+FirstName:  Eric
+LastName:   Giraka
+Address:    115 Williams St Se
+City:       Seatle
+State:      WA
+ZipCode:    98036
+
+CustomerID: 101
+GrossSales: 668.0
+FirstName:  Seth
+LastName:   Goldberg
+Address:    4647 Stone Avenue
+City:       Huntsville
+State:      TX
+ZipCode:    77320
+
+CustomerID: 64
+GrossSales: 1401.0
+FirstName:  Mark
+LastName:   Goodwin
+Address:    6639 Capitol Blvd
+City:       Montgomery
+State:      AL
+ZipCode:    36130
+
+CustomerID: 51
+GrossSales: 1591.0
+FirstName:  Eduardo
+LastName:   Green
+Address:    1240 E. Diehl Road
+City:       Columbia
+State:      SC
+ZipCode:    29209
+
+CustomerID: 43
+GrossSales: 3128.0
+FirstName:  Brent
+LastName:   Haldorai
+Address:    1427 Valley
+City:       Huntsville
+State:      AL
+ZipCode:    35806
+
+CustomerID: 68
+GrossSales: 3588.0
+FirstName:  Karen
+LastName:   Hamilton
+Address:    18 Marvin Dr.  Apt#B-5
+City:       Cincinnati
+State:      OH
+ZipCode:    45263
+
+CustomerID: 102
+GrossSales: 1455.0
+FirstName:  Esta
+LastName:   Hernandez
+Address:    4000 So. 35Th
+City:       Hagerstown
+State:      MD
+ZipCode:    21742
+
+CustomerID: 100
+GrossSales: 293.0
+FirstName:  Giridhar
+LastName:   Hodgkins
+Address:    814 East Ivy Street
+City:       Nyc
+State:      NY
+ZipCode:    110324
+
+CustomerID: 49
+GrossSales: 4303.0
+FirstName:  Walter
+LastName:   Huebner
+Address:    100 Peachtree St.
+City:       Jacksonville
+State:      FL
+ZipCode:    32217
+
+CustomerID: 50
+GrossSales: 4804.0
+FirstName:  Larry
+LastName:   Hutcheson
+Address:    2902 Cannons Lane
+City:       Coffeyville
+State:      KS
+ZipCode:    67337
+
+CustomerID: 123
+GrossSales: 4866.0
+FirstName:  Bill
+LastName:   Jackson
+Address:    25-3 Latham Villiage Lane
+City:       Parma
+State:      OH
+ZipCode:    44134
+
+CustomerID: 45
+GrossSales: 332.0
+FirstName:  Phyllis
+LastName:   Jain
+Address:    75 Lexington Court
+City:       Austin
+State:      MN
+ZipCode:    55912
+
+CustomerID: 56
+GrossSales: 3323.0
+FirstName:  Mark
+LastName:   Johnson
+Address:    1538 Harmon Cove Tower
+City:       Greenville
+State:      NC
+ZipCode:    27889
+
+CustomerID: 90
+GrossSales: 1100.0
+FirstName:  Stewart
+LastName:   Johnson
+Address:    410 Victory Garden Dr. Apt. 36
+City:       San Diego
+State:      CA
+ZipCode:    92111
+
+CustomerID: 34
+GrossSales: 2723.0
+FirstName:  Waylon
+LastName:   Johnson
+Address:    440 Richmond Park East
+City:       Hamden
+State:      CT
+ZipCode:    06517-2703
+
+CustomerID: 72
+GrossSales: 3291.0
+FirstName:  Jing peng
+LastName:   Kieffer
+Address:    1492 Highland Lakes Trail
+City:       Ringgold
+State:      GA
+ZipCode:    30736
+
+CustomerID: 74
+GrossSales: 137.0
+FirstName:  Lakshman
+LastName:   Knox
+Address:    9074 Estes St
+City:       Austin
+State:      TX
+ZipCode:    78759
+
+CustomerID: 113
+GrossSales: 426.0
+FirstName:  Carl
+LastName:   Kohli
+Address:    51 Mercedes Way
+City:       Hollister
+State:      CA
+ZipCode:    95023
+
+CustomerID: 78
+GrossSales: 902.0
+FirstName:  Andrew
+LastName:   Konow
+Address:    25677 Wistereia Ct
+City:       Greenville
+State:      SC
+ZipCode:    29607
+
+CustomerID: 41
+GrossSales: 2666.0
+FirstName:  Gopinath
+LastName:   Kumari
+Address:    35 Manor Dr. Apt# 5-O
+City:       Queens Village
+State:      NY
+ZipCode:    11428
+
+CustomerID: 93
+GrossSales: 4744.0
+FirstName:  Kimberly
+LastName:   Lacey
+Address:    3450 W. Country Club Dr
+City:       Macomb
+State:      MI
+ZipCode:    48044
+
+CustomerID: 33
+GrossSales: 423.0
+FirstName:  Andrew
+LastName:   Lair
+Address:    28 Marblestone Lane
+City:       San Francisco
+State:      CA
+ZipCode:    94122
+
+CustomerID: 77
+GrossSales: 4236.0
+FirstName:  Andrea
+LastName:   Latheef
+Address:    17 Potter Road
+City:       Jacksonville
+State:      FL
+ZipCode:    32256
+
+CustomerID: 57
+GrossSales: 2508.0
+FirstName:  Alan
+LastName:   Leach
+Address:    147 Bear Creek Pike
+City:       Dallas
+State:      TX
+ZipCode:    75218-3995
+
+CustomerID: 65
+GrossSales: 791.0
+FirstName:  Rick
+LastName:   Mallipeddi
+Address:    1876 Woodhollow Dr
+City:       Milpitas
+State:      CA
+ZipCode:    95035
+
+CustomerID: 58
+GrossSales: 3247.0
+FirstName:  Robert
+LastName:   Marlatt
+Address:    P.P. Box 139
+City:       Yorktown Heights
+State:      NY
+ZipCode:    10598
+
+CustomerID: 44
+GrossSales: 4770.0
+FirstName:  Jeremy
+LastName:   Miller
+Address:    625 Woodsmoke
+City:       Plano
+State:      TX
+ZipCode:    75023
+
+CustomerID: 88
+GrossSales: 2797.0
+FirstName:  Charles
+LastName:   Monse
+Address:    5933 6Th Street
+City:       Somersert
+State:      NJ
+ZipCode:    8873
+
+CustomerID: 35
+GrossSales: 3910.0
+FirstName:  Robert
+LastName:   Morgan
+Address:    48289 Fremont Blvd
+City:       Carrollton
+State:      TX
+ZipCode:    75006
+
+CustomerID: 46
+GrossSales: 2819.0
+FirstName:  Randy
+LastName:   Nataraj
+Address:    1409 Coliseum Blvd
+City:       Wesley Chapel
+State:      FL
+ZipCode:    33544
+
+CustomerID: 114
+GrossSales: 895.0
+FirstName:  Kim
+LastName:   Nuytten
+Address:    8908 So 121St
+City:       Chattanooga
+State:      TN
+ZipCode:    37404
+
+CustomerID: 118
+GrossSales: 2490.0
+FirstName:  Dianna
+LastName:   Palanukumarasamy
+Address:    1521 W Wolfram
+City:       Columbia
+State:      SC
+ZipCode:    29223
+
+CustomerID: 112
+GrossSales: 231.0
+FirstName:  Nancy
+LastName:   Paramasivan
+Address:    923 Fuchsia Ave
+City:       Alamo
+State:      CA
+ZipCode:    94507
+
+CustomerID: 42
+GrossSales: 2551.0
+FirstName:  Harriet
+LastName:   Pardo
+Address:    141 Summit Street
+City:       Waldorf
+State:      MN
+ZipCode:    56091
+
+CustomerID: 111
+GrossSales: 220.0
+FirstName:  Wm
+LastName:   Perkins
+Address:    900 Old Country Rd
+City:       Grand Prairie
+State:      TX
+ZipCode:    75052
+
+CustomerID: 59
+GrossSales: 4622.0
+FirstName:  Lk
+LastName:   Perlman
+Address:    505 Ellis Blvd
+City:       Philadelphia
+State:      PA
+ZipCode:    19122-6083
+
+CustomerID: 62
+GrossSales: 2209.0
+FirstName:  Robert
+LastName:   Petway
+Address:    303 3Rd Ave Se
+City:       Jacksonville
+State:      FL
+ZipCode:    32224
+
+CustomerID: 129
+GrossSales: 4939.0
+FirstName:  Jonathan
+LastName:   Pot
+Address:    14647 S. Peppermill Ct.
+City:       Madison
+State:      NJ
+ZipCode:    7940
+
+CustomerID: 86
+GrossSales: 4609.0
+FirstName:  Joe
+LastName:   Ritz
+Address:    7404 Lomo Alto
+City:       Plano
+State:      TX
+ZipCode:    75024
+
+CustomerID: 63
+GrossSales: 4191.0
+FirstName:  Timothy
+LastName:   Robinson
+Address:    3075 Highland Parkway
+City:       Westland
+State:      MI
+ZipCode:    48185
+
+CustomerID: 40
+GrossSales: 4066.0
+FirstName:  Chris
+LastName:   Roby
+Address:    182 Greylock Parkway
+City:       Sacto
+State:      CA
+ZipCode:    95814
+
+CustomerID: 76
+GrossSales: 2839.0
+FirstName:  Jagriti
+LastName:   Ryan
+Address:    115 Audubon Cove
+City:       Kingsport
+State:      TN
+ZipCode:    37663
+
+CustomerID: 110
+GrossSales: 4578.0
+FirstName:  Ian
+LastName:   Sanjay
+Address:    517 So. Main Street
+City:       Gainesville
+State:      FL
+ZipCode:    32301
+
+CustomerID: 71
+GrossSales: 4257.0
+FirstName:  Anita
+LastName:   Santos
+Address:    1640 Barrington Lane
+City:       Barrington
+State:      IL
+ZipCode:    60448
+
+CustomerID: 81
+GrossSales: 187.0
+FirstName:  Brandon
+LastName:   Schlusselberg
+Address:    303 South Second St.
+City:       Collinsville
+State:      IL
+ZipCode:    62234-2973
+
+CustomerID: 73
+GrossSales: 1748.0
+FirstName:  Glenda
+LastName:   Seaver
+Address:    23 Holohan Drive
+City:       Mountlake Terrace
+State:      WA
+ZipCode:    98043
+
+CustomerID: 47
+GrossSales: 4400.0
+FirstName:  Timothy
+LastName:   Sellers
+Address:    13700 Sutton Park Dr N -- #322
+City:       Dallas
+State:      TX
+ZipCode:    75287
+
+CustomerID: 32
+GrossSales: 2651.0
+FirstName:  Liuy
+LastName:   Slabicki
+Address:    1979 Marcus Ave.
+City:       Westwood
+State:      NJ
+ZipCode:    7675
+
+CustomerID: 106
+GrossSales: 2836.0
+FirstName:  Steven
+LastName:   Smisko
+Address:    104 Cinnamon Teal Court
+City:       Warren
+State:      MI
+ZipCode:    48089
+
+CustomerID: 61
+GrossSales: 2573.0
+FirstName:  George
+LastName:   Stein
+Address:    95 Carleton St
+City:       New Milford
+State:      NJ
+ZipCode:    7646
+
+CustomerID: 116
+GrossSales: 3745.0
+FirstName:  Edgar
+LastName:   Sun
+Address:    39 Howell Place
+City:       Parsippany
+State:      NJ
+ZipCode:    7054
+
+CustomerID: 128
+GrossSales: 3565.0
+FirstName:  Jo
+LastName:   Susai
+Address:    42524 Parkhurst Rd.
+City:       Mansfield
+State:      MA
+ZipCode:    2048
+
+CustomerID: 99
+GrossSales: 1655.0
+FirstName:  Lucy
+LastName:   Trasente
+Address:    51783 Se 7Th Street
+City:       Westerville
+State:      OH
+ZipCode:    43081
+
+CustomerID: 107
+GrossSales: 1089.0
+FirstName:  Jeff
+LastName:   Travis
+Address:    3111 Monument Drive
+City:       Milwaukee
+State:      WI
+ZipCode:    53218
+
+CustomerID: 103
+GrossSales: 4324.0
+FirstName:  Janet
+LastName:   Trent
+Address:    13101 Columbia Pike
+City:       San Francisco
+State:      CA
+ZipCode:    94122
+
+CustomerID: 85
+GrossSales: 2120.0
+FirstName:  Thell
+LastName:   Trujillo
+Address:    1204 Keller Lane
+City:       Fairfield
+State:      IA
+ZipCode:    52556
+
+CustomerID: 70
+GrossSales: 936.0
+FirstName:  Joanne
+LastName:   Varghese
+Address:    7178 Talhelm Road
+City:       Fort Wayne
+State:      IN
+ZipCode:    46805-1499
+
+CustomerID: 94
+GrossSales: 4258.0
+FirstName:  Bharat
+LastName:   Vega
+Address:    3003 N. First St. Ste309
+City:       Little Elm
+State:      TX
+ZipCode:    75068
+
+CustomerID: 131
+GrossSales: 2169.0
+FirstName:  Tina
+LastName:   Wazny
+Address:    1025 Cadillac Way
+City:       Birmingham
+State:      AL
+ZipCode:    35242
+
+CustomerID: 104
+GrossSales: 882.0
+FirstName:  Sathyanarayana
+LastName:   Wheatley
+Address:    2226 Spring Dusk Lane
+City:       Bloomingdale
+State:      NJ
+ZipCode:    7403
+
+CustomerID: 84
+GrossSales: 2166.0
+FirstName:  Frank
+LastName:   Wieneke
+Address:    2111 Bancroft Way
+City:       Birmingham
+State:      AL
+ZipCode:    35226
+
+CustomerID: 75
+GrossSales: 4743.0
+FirstName:  Alex
+LastName:   Wigton
+Address:    5033 Montego Bay Dr
+City:       Brooklyn
+State:      NY
+ZipCode:    11245
+
+CustomerID: 105
+GrossSales: 4061.0
+FirstName:  Eugene
+LastName:   Williams
+Address:    805D Columbia St.
+City:       Flushing
+State:      NY
+ZipCode:    11355
+
+CustomerID: 55
+GrossSales: 705.0
+FirstName:  Jonathan
+LastName:   Wolff
+Address:    7921 Lamar
+City:       Ann Arbor
+State:      MI
+ZipCode:    48108
+
+CustomerID: 69
+GrossSales: 445.0
+FirstName:  George
+LastName:   Ybarra
+Address:    6 Oneill Ct
+City:       Detroit
+State:      MI
+ZipCode:    48206-1775
+
+CustomerID: 97
+GrossSales: 4646.0
+FirstName:  Nicolette
+LastName:   Yciano
+Address:    1295 State Street
+City:       Gettysburg
+State:      PA
+ZipCode:    17325
+
+
+Total Gross Sales: 259316.0
+
+
+
+
+Test get and set for CustomerList
+x = CustomerID: 92
+GrossSales: 1838.0
+FirstName:  Edward
+LastName:   Aguimba
+Address:    444 Propsect St
+City:       Streamwood
+State:      IL
+ZipCode:    60107
+
+x = CustomerID: 92
+GrossSales: 1838.0
+FirstName:  Homer
+LastName:   Aguimba
+Address:    444 Propsect St
+City:       Streamwood
+State:      IL
+ZipCode:    60107
+
+
+
+
+
+Test indexOf and update
+idx = 2
+Customer with id 35 = 
+CustomerID: 35
+GrossSales: 3910.0
+FirstName:  Robert
+LastName:   Morgan
+Address:    48289 Fremont Blvd
+City:       Carrollton
+State:      TX
+ZipCode:    75006
+
+Update successful
+Customer with id 35 = 
+CustomerID: 35
+GrossSales: 4010.0
+FirstName:  Robert
+LastName:   Morgan
+Address:    48289 Fremont Blvd
+City:       Carrollton
+State:      TX
+ZipCode:    75006
+
+Update not successful
+
+
+
+
+Test remove
+x = CustomerID: 33
+GrossSales: 423.0
+FirstName:  Andrew
+LastName:   Lair
+Address:    28 Marblestone Lane
+City:       San Francisco
+State:      CA
+ZipCode:    94122
+
+Deleted
+CustomerID: 33
+GrossSales: 423.0
+FirstName:  Andrew
+LastName:   Lair
+Address:    28 Marblestone Lane
+City:       San Francisco
+State:      CA
+ZipCode:    94122
+
+No Customer deleted
+
+
+
+
+File write successful
+BUILD SUCCESSFUL (total time: 1 second)
