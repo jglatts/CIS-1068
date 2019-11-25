@@ -5,13 +5,8 @@ import java.io.FileNotFoundException;
 /**
  * 
  *  ToDo
- *      - double check if sort() and compareTo() are working right
- *          - sort is NOT WORKING right
  *      - double check if add() can grow dynamically
- *      - fix the formatting error for CustomerID #59
- *          - formatting is off so the value never makes it to the list
- *      - fix the size error
- *          - should be 100 files but says 6000
+ *      - get rid of all the try-catches 
  * 
  * @author johng
  */
@@ -45,7 +40,7 @@ public class Glatts_John_Assignment_8 {
         System.out.println("\n\n\n");
         // Test indexOf and update 
         System.out.println("Test indexOf and update");
-        System.out.println("idx = " + cl.indexOf(34));
+        System.out.println("idx = " + cl.indexOf(35));
         System.out.println("Customer with id 35 = \n" + cl.get(cl.indexOf(35)));
         // Update an existing Customer
         b = cl.update(35, 100.0);

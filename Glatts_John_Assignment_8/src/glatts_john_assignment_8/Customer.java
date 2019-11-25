@@ -87,12 +87,9 @@ public class Customer extends Person implements Comparable{
     public int compareTo(Object t) {
         try {
             Customer c = null;
-            if (t instanceof Customer )
-                c = (Customer)t;
-            if (customerID > c.getCustomerID()) 
-                return 1;
-            if (customerID < c.getCustomerID()) 
-                return -1; 
+            if (t instanceof Customer ) c = (Customer)t;
+            if (customerID > c.getCustomerID()) return 1;
+            if (customerID < c.getCustomerID()) return -1; 
         }
         catch (Exception e) {
             // null pointer exception
