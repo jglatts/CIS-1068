@@ -14,8 +14,12 @@ public class Person {
     private String state;
     private int zipCode;
     
+    /* Construct that accecpts a CVS string */
+    public Person(String s) { }    
+    
     /**
      * Parameterized Person Constructor
+     * 
      * @param f, first name
      * @param l, last name
      * @param a, address
@@ -32,10 +36,6 @@ public class Person {
         this.zipCode = z;
     }
     
-    public Person(String s) {
-        
-    }
-
     /**
      *  Getters
      */
@@ -57,6 +57,7 @@ public class Person {
     public void setAddress(String a) { this.address = a; }
     public void setCity(String s) { this.city = s; }
     public void setState(String s) { this.state = s; }
+    public void setZipCode(String s) { this.zipCode = Integer.parseInt(s); }
     public void setZipCode(int z) { this.zipCode = z; }
         
     @Override
@@ -73,6 +74,7 @@ public class Person {
     
     /**
      * Format the data to a CSV string
+     * 
      * @return the CSV string 
      */
     public String toCSV() {
@@ -81,6 +83,7 @@ public class Person {
     
     /**
      * Copy the data from p to this Person
+     * 
      * @param p, person to copy data
      */
     public void copy(Person p) {
@@ -94,6 +97,7 @@ public class Person {
     
     /**
      * Copy the data passed as arguments to this Person
+     * 
      * @param f, first name
      * @param l, last name
      * @param a, address
@@ -111,6 +115,7 @@ public class Person {
     
     /**
      * Return a Person with a copy of this data
+     * 
      * @return new Person object
      * @throws CloneNotSupportedException 
      */

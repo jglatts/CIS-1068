@@ -53,7 +53,12 @@ public class CustomerList {
      * @return the arrays size
      */
     public int size() { 
-        return size; 
+        //return size;    // getting a crazy large size here 
+        int count = 0;
+        for (Customer c : custArray)
+            if (c != null)
+                count++;
+        return count;
     }
     
     /**
@@ -188,19 +193,21 @@ public class CustomerList {
      * @throws FileNotFoundException 
      */
     public static CustomerList read(String fileName) throws FileNotFoundException {
+        int size = 0;
         File custInput = new File(fileName);
         Scanner scan = new Scanner(custInput);
         CustomerList newList = new CustomerList((int)custInput.length());
         if (custInput.exists()) {
-            while (scan.hasNextLine()) {
+            while (scan.hasNext()) {
+                // always skipping 59 and throws an erorr 
                 try {
-                    String csv = scan.nextLine();
-                    Customer c = new Customer(csv);
-                    newList.add(c);
+                    size++;
+                    newList.add(new Customer(scan.nextLine()));
                 } catch(Exception e) {
                     //System.out.println("Something went wrong :(" + e);
                 }
             }
+        newList.size = size;    
         return newList;    
         }
         else return null;
@@ -218,7 +225,7 @@ public class CustomerList {
         PrintStream output = new PrintStream(new File(f));
         try {
             for (int i = 0; i < cList.size(); ++i) {
-                output.println(cList.get(i).toCSV());
+                if (cList.get(i) != null) output.println(cList.get(i).toCSV());
             }    
             return true;
         } catch(Exception e) {
@@ -234,8 +241,8 @@ public class CustomerList {
      */
     public void sort() {
         try {
-            for (int i = 0; i < size-1; ++i) {
-                for (int x = 0; x < size-i-1; ++x) {
+            for (int i = 0; i < size; ++i) {
+                for (int x = 0; x < size; ++x) {
                     if (custArray[i].compareTo(custArray[x]) < 0) {
                         Customer temp = custArray[i];
                         custArray[i] = custArray[x];
@@ -261,9 +268,15 @@ public class CustomerList {
      *      -  then update the array (change its size/indices etc...)
      */
     public int indexOf(int i) {
-        for (int x = 0; x < size; ++x)
-            if (custArray[x].getCustomerID() == i)
-                return x;
+        try {
+            for (int x = 0; x < size; ++x)
+                if (custArray[x].getCustomerID() == i)
+                    return x;
+        } catch (Exception e) {
+            // always throws the null pointer!!
+            //System.out.println(e + " @ indexOf() looking for " + i);
+            return -1;
+        }
         return -1;
     }
 

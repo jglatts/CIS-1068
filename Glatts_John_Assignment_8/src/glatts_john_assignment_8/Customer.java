@@ -17,6 +17,7 @@ public class Customer extends Person implements Comparable{
     
     /**
      * Constructor with all the data passed in as parameters
+     * 
      * @param f, firstName of customer
      * @param l, lastName of customer
      * @param a, address of customer
@@ -34,6 +35,7 @@ public class Customer extends Person implements Comparable{
     
     /**
      * Constructor with a CSV string as a parameter
+     * 
      * @param s, the CSV string containing all necessary data
      */
     public Customer(String s) {
@@ -62,6 +64,9 @@ public class Customer extends Person implements Comparable{
         return s + "\n";
     }
     
+    /**
+     * @return the customer's full name 
+     */
     public String getName() {
         return super.getFirstName() + " " + super.getLastName();
     }
@@ -97,6 +102,7 @@ public class Customer extends Person implements Comparable{
     
     /**
      * Copy Customer data passed as a parameter to the this current Customer 
+     * 
      * @param c, the Customer to copy data from
      */
     public void copy(Customer c) {
@@ -111,6 +117,7 @@ public class Customer extends Person implements Comparable{
     
     /**
      * Given a CSV string as a parameter, extract all the necessary data from it
+     * 
      * @param s, the CSV string
      */
     public void copyCSV(String s) {
@@ -122,7 +129,23 @@ public class Customer extends Person implements Comparable{
         super.setAddress(data[4]);
         super.setCity(data[5]);
         super.setState(data[6]);
-        super.setZipCode(Integer.parseInt(data[7]));
+        checkZipCode(data[7]);
+    }
+    
+    /**
+     * Check if the given Zip Code contains a hyphen
+     * i.e, "19122-6083"
+     * 
+     * @param s, the Zip Code string to check 
+     */
+    private void checkZipCode(String s) {
+        if (s.contains("-")) {
+            // figure out what do what the hyphen
+            int zipOne = Integer.parseInt(s.substring(0, 5));
+            int zipTwo = Integer.parseInt(s.substring(6));
+            super.setZipCode(zipOne);
+        }
+        else super.setZipCode(Integer.parseInt(s));    
     }
     
     @Override
