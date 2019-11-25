@@ -12,7 +12,7 @@ public class Person {
     private String address;
     private String city;
     private String state;
-    private int zipCode;
+    private String zipCode;
     
     /* Construct that accecpts a CVS string */
     public Person(String s) { }    
@@ -27,7 +27,7 @@ public class Person {
      * @param s, state
      * @param z, zip code 
      */
-    public Person(String f, String l, String a, String c, String s, int z) {
+    public Person(String f, String l, String a, String c, String s, String z) {
         this.firstName = f;
         this.lastName = l;
         this.address = a;
@@ -44,7 +44,7 @@ public class Person {
     public String getAddress() { return address+""; }
     public String getCity() { return city; }
     public String getState() { return state; }
-    public int getZipCode() { return zipCode; }   
+    public String getZipCode() { return zipCode; }   
     public int getAddress(boolean check) { 
         return Integer.parseInt(address); 
     }
@@ -57,8 +57,7 @@ public class Person {
     public void setAddress(String a) { this.address = a; }
     public void setCity(String s) { this.city = s; }
     public void setState(String s) { this.state = s; }
-    public void setZipCode(String s) { this.zipCode = Integer.parseInt(s); }
-    public void setZipCode(int z) { this.zipCode = z; }
+    public void setZipCode(String s) { this.zipCode = s; }
         
     @Override
     public String toString() {
@@ -104,7 +103,7 @@ public class Person {
      * @param c, city
      * @param z, zip code
      */
-    public void copy(String f, String l, String a, String c, String s, int z) {
+    public void copy(String f, String l, String a, String c, String s, String z) {
         this.firstName = f;
         this.lastName = l;
         this.address = a;

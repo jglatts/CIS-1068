@@ -1,5 +1,5 @@
 32, 2651.0, Homer, Slabicki, 1979 Marcus Ave., Westwood, NJ, 7675
-34, 2723.0, Waylon, Johnson, 440 Richmond Park East, Hamden, CT, 6517
+34, 2723.0, Waylon, Johnson, 440 Richmond Park East, Hamden, CT, 06517-2703
 35, 4010.0, Robert, Morgan, 48289 Fremont Blvd, Carrollton, TX, 75006
 36, 1516.0, Christian, Annamanaidu, 213 N. College Dr., Omaha, NE, 68127
 38, 2743.0, Aneta, Beier, 8204 Anderson Road, Temple, TX, 76504
@@ -21,7 +21,7 @@
 54, 2430.0, Jose, Deguzman, 4168 Woodland Road, Brooklyn, NY, 11226
 55, 705.0, Jonathan, Wolff, 7921 Lamar, Ann Arbor, MI, 48108
 56, 3323.0, Mark, Johnson, 1538 Harmon Cove Tower, Greenville, NC, 27889
-57, 2508.0, Alan, Leach, 147 Bear Creek Pike, Dallas, TX, 75218
+57, 2508.0, Alan, Leach, 147 Bear Creek Pike, Dallas, TX, 75218-3995
 58, 3247.0, Robert, Marlatt, P.P. Box 139, Yorktown Heights, NY, 10598
 59, 420.0, Wm, Perkins, 900 Old Country Rd, Grand Prairie, TX, 75052
 60, 4371.0, Scott, Brown, 919  137Th Avenue Ne, Kansas City, KS, 66102
@@ -33,8 +33,8 @@
 66, 673.0, Bry, Buford, 540 W North West Highway, New York, NY, 10005
 67, 598.0, Mark, Fritz, 16 Erie, Hosuton, TX, 77077
 68, 3588.0, Karen, Hamilton, 18 Marvin Dr.  Apt#B-5, Cincinnati, OH, 45263
-69, 445.0, George, Ybarra, 6 Oneill Ct, Detroit, MI, 48206
-70, 936.0, Joanne, Varghese, 7178 Talhelm Road, Fort Wayne, IN, 46805
+69, 445.0, George, Ybarra, 6 Oneill Ct, Detroit, MI, 48206-1775
+70, 936.0, Joanne, Varghese, 7178 Talhelm Road, Fort Wayne, IN, 46805-1499
 71, 4257.0, Anita, Santos, 1640 Barrington Lane, Barrington, IL, 60448
 72, 3541.0, Jing peng, Kieffer, 1492 Highland Lakes Trail, Ringgold, GA, 30736
 73, 1748.0, Glenda, Seaver, 23 Holohan Drive, Mountlake Terrace, WA, 98043
@@ -45,7 +45,7 @@
 78, 902.0, Andrew, Konow, 25677 Wistereia Ct, Greenville, SC, 29607
 79, 963.0, Simon, Chang, 8317 Cabin Creek Drive, Oshkosh, WI, 54901
 80, 4409.0, Chong, Garcia, 28000 Dequindre, Fairfax, VA, 22033
-81, 187.0, Brandon, Schlusselberg, 303 South Second St., Collinsville, IL, 62234
+81, 187.0, Brandon, Schlusselberg, 303 South Second St., Collinsville, IL, 62234-2973
 82, 1980.0, Dinesh, Boan, 11582 Rusk Cove, Charlotte, NC, 28270
 83, 1874.0, Tai-yen, Dalton, 115 Tower Drive, Round Rock, TX, 78681
 84, 2166.0, Frank, Wieneke, 2111 Bancroft Way, Birmingham, AL, 35226
@@ -73,7 +73,7 @@
 106, 2836.0, Steven, Smisko, 104 Cinnamon Teal Court, Warren, MI, 48089
 107, 1089.0, Jeff, Travis, 3111 Monument Drive, Milwaukee, WI, 53218
 108, 4961.0, Vito, Broadhurst, 300 30Th Ave. N. Apt. 4C, Fennimore, WI, 53809
-109, 4167.0, Tom, Chansa, 123 Sfsdfsdfsdf, Sacramento, CA, 95820
+109, 4167.0, Tom, Chansa, 123 Sfsdfsdfsdf, Sacramento, CA, 95820-4617
 110, 4578.0, Ian, Sanjay, 517 So. Main Street, Gainesville, FL, 32301
 111, 220.0, Wm, Perkins, 900 Old Country Rd, Grand Prairie, TX, 75052
 112, 231.0, Nancy, Paramasivan, 923 Fuchsia Ave, Alamo, CA, 94507

@@ -27,7 +27,7 @@ public class Customer extends Person implements Comparable{
      * @param cID, customerID of customer
      * @param g, grossSales of customer 
      */
-    public Customer(String f, String l, String a, String c, String s,  int z, int cID, double g) {
+    public Customer(String f, String l, String a, String c, String s,  String z, int cID, double g) {
         super(f, l, a, c, s, z);
         this.customerID = cID;
         this.grossSales = g;
@@ -126,23 +126,7 @@ public class Customer extends Person implements Comparable{
         super.setAddress(data[4]);
         super.setCity(data[5]);
         super.setState(data[6]);
-        checkZipCode(data[7]);
-    }
-    
-    /**
-     * Check if the given Zip Code contains a hyphen
-     * i.e, "19122-6083"
-     * 
-     * @param s, the Zip Code string to check 
-     */
-    private void checkZipCode(String s) {
-        if (s.contains("-")) {
-            // figure out what do what the hyphen
-            int zipOne = Integer.parseInt(s.substring(0, 5));
-            int zipTwo = Integer.parseInt(s.substring(6));
-            super.setZipCode(zipOne);
-        }
-        else super.setZipCode(Integer.parseInt(s));    
+        super.setZipCode(data[7]);
     }
     
     @Override
