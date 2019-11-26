@@ -76,7 +76,7 @@ public class Glatts_John_Assignment_8 {
         // Write file
         b = CustomerList.write(cl, "NewCustomers.csv");
         if(b)
-            System.out.println("File write successful");
+            System.out.println("File write successful. Wrote " + cl.size() + " records to 'NewCustomers.csv'");
         else
             System.out.println("File write failed"); 
     }

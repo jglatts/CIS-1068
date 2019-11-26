@@ -21,7 +21,6 @@ import java.util.Scanner;
  * 
  * @author johng
  */
-
 public class CustomerList {
     
     private int size;
@@ -34,8 +33,6 @@ public class CustomerList {
     public CustomerList() {
         this.size = 4;
         custArray = new Customer[4];
-        for (int i = 0; i < size; ++i) 
-            custArray[i] = null;        
     }
     
     /**
@@ -45,8 +42,6 @@ public class CustomerList {
     public CustomerList(int i) {
         this.size = i;
         custArray = new Customer[i];
-        for (int x = 0; x < size; ++x) 
-            custArray[x] = null;
     }
     
     /**
@@ -236,15 +231,13 @@ public class CustomerList {
      */
     public static boolean write(CustomerList cList, String f) throws FileNotFoundException {
         PrintStream output = new PrintStream(new File(f));
-        try {
-            for (int i = 0; i < cList.size(); ++i) {
-                if (cList.get(i) != null) output.println(cList.get(i).toCSV());
-            }    
-            return true;
-        } catch(Exception e) {
-            System.out.println("Something went wrong (at CustomerList.write())" + e);
-        }  
-        return false;
+        output.println("CustomerID, GrossSales, FirstName, LastName, Address, City, State, ZipCode");
+        boolean check = false;
+        for (int i = 0; i < cList.size(); ++i) {
+            output.println(cList.get(i).toCSV());
+            check = true;
+        } 
+        return check;
     }
     
     /**
@@ -253,21 +246,15 @@ public class CustomerList {
      *  - try and use more effiecent alg.
      */
     public void sort() {
-        try {
-            for (int i = 0; i < size-1; ++i) {
-                for (int x = 0; x < size-i-1; ++x) {
-                    if (custArray[x].compareTo(custArray[x+1]) > 0) {
-                        Customer temp = custArray[x+1];
-                        custArray[x+1] = custArray[x];
-                        custArray[x] = temp;                
-                    } 
-                }
-            }        
-        } catch (Exception e) {
-            // Throws null pointer
-            //System.out.println(e);
-        }
-
+        for (int i = 0; i < size-1; ++i) {
+            for (int x = 0; x < size-i-1; ++x) {
+                if (custArray[x].compareTo(custArray[x+1]) > 0) {
+                    Customer temp = custArray[x+1];
+                    custArray[x+1] = custArray[x];
+                    custArray[x] = temp;                
+                } 
+            }
+        }        
     }
     
     /**
@@ -281,19 +268,25 @@ public class CustomerList {
      *          - and return the insertion point
      */
     public int indexOf(int i) {
-        try {
-            // try and use a recursive call
-            int left = 0, right = size-1;
-            while (left <= right) {
-                int mid = left + (right-left) / 2;
-                if (custArray[mid].getCustomerID() == i) return mid;
-                if (custArray[mid].getCustomerID() < i) left = mid + 1;
-                else right = mid - 1;
-            }
-        } catch (Exception e) {
-            // always throws the null pointer!!
-            //System.out.println(e + " @ indexOf() looking for " + i);
-            return -1;
+        int idx = findIndexOf(i, 0, size-1);
+        if (idx > 0) return idx;
+        else return -1;
+    }
+    
+    /**
+     *  Recursive binary search method to locate the index of a CustomerID 
+     * 
+     * @param i, the CustomerID
+     * @param left, the left partition of array
+     * @param right, the right partition of array
+     * @return the index of the CustomerID, -1 if it DNE
+     */
+    private int findIndexOf(int i, int left, int right) {
+        if (right >= left) {
+            int mid = left + (right-left) / 2;
+            if (custArray[mid].getCustomerID() == i) return mid;
+            if (i > custArray[mid].getCustomerID()) return findIndexOf(i, mid + 1, right);
+            else return findIndexOf(i, left, mid-1);     
         }
         return -1;
     }
@@ -308,8 +301,8 @@ public class CustomerList {
     public boolean update(int id, double amount) {
         int idx = indexOf(id);
         if (idx > 0) {
-                custArray[idx].setGrossSales(custArray[idx].getGrossSales() + amount);
-                return true;                
+            custArray[idx].setGrossSales(custArray[idx].getGrossSales() + amount);
+            return true;                
         }        
         return false;
     }
