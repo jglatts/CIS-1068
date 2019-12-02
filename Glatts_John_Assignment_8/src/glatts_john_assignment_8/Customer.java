@@ -11,7 +11,7 @@ package glatts_john_assignment_8;
  * @author johng
  */
 // implents Comparable<Person>!!!
-public class Customer extends Person implements Comparable{
+public class Customer extends Person implements Comparable<Customer>{
     
     private int customerID;
     private double grossSales;
@@ -84,13 +84,11 @@ public class Customer extends Person implements Comparable{
      * Compare the current Customer to the Customer passed as a parameter
      * Check which one has the smaller customerID number
      * 
-     * @param t, the Customer to compare to
+     * @param c, the Customer to compare to
      * @return the value indicating which customer ID is smaller
      */    
     @Override
-    public int compareTo(Object t) {
-        Customer c = null;
-        if (t instanceof Customer ) c = (Customer)t;
+    public int compareTo(Customer c) {
         if (customerID > c.getCustomerID()) return 1;
         if (customerID < c.getCustomerID()) return -1; 
         return 0;

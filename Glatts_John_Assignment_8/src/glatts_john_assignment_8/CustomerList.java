@@ -112,37 +112,39 @@ public class CustomerList {
      * @param c, the customer to add 
      */
     private void makeTempArrayAdd(Customer c) {
-        // use a clone() method
-        Customer[] tempArray;
-        int count = 0;
         size *= 2;
-        tempArray = new Customer[size];
-        for (int i = 0; i < size/2; ++i) {
-            tempArray[i] = custArray[i];
-            count = i;
-        }
-        tempArray[count+1] = c;
-        custArray = null;
-        custArray = new Customer[size];
-        for (int x = 0; x < size; ++x) {
-            custArray[x] = tempArray[x];
-        }
+        Customer[] tempArray = new Customer[size];
+        updateTemp(tempArray, c);
+        updateCustArray(tempArray);
     } 
     
     /**
-     * Find the the last index of array that has a value
-     * This method is used when making a new array
-     * @return the index of the last value in array
+     * Update the temp. array, by copying all the info over
+     * 
+     * @param temp, the temp array
+     * @param c, the customer to add
      */
-    private int findLastIndex() {
+    private void updateTemp(Customer[] temp, Customer c) {
         int count = 0;
-        for (int i = 0; i < size; ++i) {
-            if (custArray[i] != null)
-                count = i;
-        }
-        return count;
+        for (int i = 0; i < size/2; ++i) {
+            temp[i] = custArray[i];
+            count = i;
+        }    
+        temp[count+1] = c;
     }
     
+    /**
+     * Update the actual CustomerArray 
+     * 
+     * @param temp, the temp array to copy from
+     */
+    private void updateCustArray(Customer[] temp) {
+        custArray = new Customer[size];
+        for (int x = 0; x < size; ++x) {
+            custArray[x] = temp[x];
+        }    
+    }
+
     /**
      * Remove the customer at the given index from the list
      * 
@@ -150,7 +152,6 @@ public class CustomerList {
      * @return the customer if completed, null otherwise
      */
     public Customer remove(int i) {
-        Customer t;
         if (i == (size-1)) return removeLastElement(i);
         if (i < size) return removeAndUpdate(i);
         return null;
@@ -208,6 +209,7 @@ public class CustomerList {
      */
     public static CustomerList read(String fileName) throws FileNotFoundException {
         try { return readFile(fileName); } 
+        // change this to a general Exception??
         catch (FileNotFoundException e) {
             System.out.println("File doesnt exist. Please try again.");
             return null;
@@ -225,7 +227,7 @@ public class CustomerList {
     private static CustomerList readFile(String fileName) throws FileNotFoundException {
         File custInput = new File(fileName);
         Scanner scan = new Scanner(custInput);
-        CustomerList newList = new CustomerList((int)custInput.length()); 
+        CustomerList newList = new CustomerList((int)custInput.length()); // get the right value here, way off
         int size = 0;
         scan.nextLine();  
         while (scan.hasNextLine()) {
