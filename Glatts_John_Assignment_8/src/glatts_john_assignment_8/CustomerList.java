@@ -114,12 +114,19 @@ public class CustomerList {
     private void makeTempArrayAdd(Customer c) {
         // use a clone() method
         Customer[] tempArray;
-        int lastIndex = findLastIndex();
+        int count = 0;
         size *= 2;
         tempArray = new Customer[size];
-        tempArray = custArray;
-        custArray = tempArray;
-        custArray[lastIndex+1] = c;    
+        for (int i = 0; i < size/2; ++i) {
+            tempArray[i] = custArray[i];
+            count = i;
+        }
+        tempArray[count+1] = c;
+        custArray = null;
+        custArray = new Customer[size];
+        for (int x = 0; x < size; ++x) {
+            custArray[x] = tempArray[x];
+        }
     } 
     
     /**

@@ -1,5 +1,5 @@
 CustomerID, GrossSales, FirstName, LastName, Address, City, State, ZipCode
-32, 2651.0, Liuy, Slabicki, 1979 Marcus Ave., Westwood, NJ, 7675
+32, 2651.0, Homer, Slabicki, 1979 Marcus Ave., Westwood, NJ, 7675
 34, 2723.0, Waylon, Johnson, 440 Richmond Park East, Hamden, CT, 06517-2703
 35, 4010.0, Robert, Morgan, 48289 Fremont Blvd, Carrollton, TX, 75006
 36, 1516.0, Christian, Annamanaidu, 213 N. College Dr., Omaha, NE, 68127
@@ -57,7 +57,7 @@ CustomerID, GrossSales, FirstName, LastName, Address, City, State, ZipCode
 89, 3492.0, Joseph, Boswell, 3131 E. Holcombe Blvd, Shelton, CT, 6484
 90, 1100.0, Stewart, Johnson, 410 Victory Garden Dr. Apt. 36, San Diego, CA, 92111
 91, 1488.0, Usha, Cummings, 12033 Foundation Place, Greenville, TX, 75401
-92, 1838.0, Homer, Aguimba, 444 Propsect St, Streamwood, IL, 60107
+92, 1838.0, Edward, Aguimba, 444 Propsect St, Streamwood, IL, 60107
 93, 4744.0, Kimberly, Lacey, 3450 W. Country Club Dr, Macomb, MI, 48044
 94, 4258.0, Bharat, Vega, 3003 N. First St. Ste309, Little Elm, TX, 75068
 95, 826.0, Walter, Cheboli, 4260 Nw 32 Street, Mankato, MN, 56002
