@@ -48,7 +48,6 @@ public class CustomerList {
      * @return the arrays size
      */
     public int size() { 
-        //return size;    // getting a crazy large size here 
         int count = 0;
         for (Customer c : custArray)
             if (c != null)
@@ -63,8 +62,7 @@ public class CustomerList {
      * @return the customer if it exists, null otherwise
      */
     public Customer get(int i) {
-        if (i < size)
-            return custArray[i];        
+        if (i < size) return custArray[i];        
         return null;
     }
     
@@ -91,7 +89,7 @@ public class CustomerList {
      */
     public void add(Customer c) {
         if(custArray[size-1] == null) addCustomer(c);
-        else makeTempArray(c);
+        else makeTempArrayAdd(c);
     }
     
     /**
@@ -113,13 +111,13 @@ public class CustomerList {
      * 
      * @param c, the customer to add 
      */
-    private void makeTempArray(Customer c) {
+    private void makeTempArrayAdd(Customer c) {
+        // use a clone() method
         Customer[] tempArray;
         int lastIndex = findLastIndex();
         size *= 2;
         tempArray = new Customer[size];
         tempArray = custArray;
-        custArray = new Customer[size];
         custArray = tempArray;
         custArray[lastIndex+1] = c;    
     } 
@@ -146,37 +144,50 @@ public class CustomerList {
      */
     public Customer remove(int i) {
         Customer t;
-        if (i == (size-1)) {
-            size--;
-            t = custArray[i];
-            custArray[i] = null;
-            return t;
-        }
-        if (i < size) {
-            t = custArray[i];
-            custArray[i] = null;
-            size--;
-            for (int x = i; x < size; ++x) {
-                custArray[x] = custArray[x+1];
-            } 
-            return t;
-        } 
+        if (i == (size-1)) return removeLastElement(i);
+        if (i < size) return removeAndUpdate(i);
         return null;
     }    
+    
+    /**
+     * Remove the customer at the last index, no array update required
+     * 
+     * @param i, the index to remove
+     * @return the customer deleted
+     */
+    private Customer removeLastElement(int i) {
+        Customer c = custArray[i];
+        custArray[i] = null;
+        size--;
+        return c;
+    }
+    
+    /**
+     *  Remove a customer and update the size of the array
+     * 
+     * @param i
+     * @return the customer deleted 
+     */
+    private Customer removeAndUpdate(int i) {
+        Customer c = custArray[i];
+        custArray[i] = null;
+        size--;
+        for (int x = i; x < size; ++x) {
+            custArray[x] = custArray[x+1];
+        } 
+        return c;    
+    }
     
     @Override
     public String toString() {
         String s = "";
         double total = 0;
-        try {
-            for (Customer c : custArray) {
+        for (Customer c : custArray) {
+            if (c != null) {
                 s += c.toString();
                 total += c.getGrossSales();
             }
-        } catch (Exception e) {
-            // always get this nullPointer exception!!!!
-            //System.out.println("Error Here (at CustomerList.toString()) --> " + e);
-        } 
+        }        
         return s + "Total Gross Sales = " + total;
     }
     
@@ -189,36 +200,33 @@ public class CustomerList {
      * @throws FileNotFoundException 
      */
     public static CustomerList read(String fileName) throws FileNotFoundException {
-        File custInput = new File(fileName);
-        Scanner scan = new Scanner(custInput);
-        CustomerList newList = new CustomerList((int)custInput.length());
-        if (readFile(scan, newList, custInput)) return newList;    
-        else return null;
+        try { return readFile(fileName); } 
+        catch (FileNotFoundException e) {
+            System.out.println("File doesnt exist. Please try again.");
+            return null;
+        }
     }
     
     /**
-     * Check if the file exists and add it to the list
+     * Scan through a file and add new customers to the list
      * 
      * @param scan, scanner object
      * @param c, the new customerList
      * @param f, the file to read
-     * @return true if the file exists, false otherwise
+     * @return the customerList containing the new customers
      */
-    private static boolean readFile(Scanner scan, CustomerList c, File f) {
+    private static CustomerList readFile(String fileName) throws FileNotFoundException {
+        File custInput = new File(fileName);
+        Scanner scan = new Scanner(custInput);
+        CustomerList newList = new CustomerList((int)custInput.length()); 
         int size = 0;
-        if (f.exists()) {
-            while (scan.hasNext()) {
-                try {
-                    size++;
-                    c.add(new Customer(scan.nextLine()));
-                } catch(Exception e) {
-                    //System.out.println("Something went wrong :(" + e);
-                }
-            }    
-            c.size = size;    
-            return true;
-        } 
-        return false;
+        scan.nextLine();  
+        while (scan.hasNextLine()) {
+            size++;
+            newList.add(new Customer(scan.nextLine()));                
+        }    
+        newList.size = size;    
+        return newList;          
     }
     
     /**
@@ -242,8 +250,6 @@ public class CustomerList {
     
     /**
      * Sort the CustomerList by CustomerID
-     *  - Uses bubble sort
-     *  - try and use more effiecent alg.
      */
     public void sort() {
         for (int i = 0; i < size-1; ++i) {
@@ -268,9 +274,7 @@ public class CustomerList {
      *          - and return the insertion point
      */
     public int indexOf(int i) {
-        int idx = findIndexOf(i, 0, size-1);
-        if (idx > 0) return idx;
-        else return -1;
+        return findIndexOf(i, 0, size-1);
     }
     
     /**

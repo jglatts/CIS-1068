@@ -10,6 +10,7 @@ package glatts_john_assignment_8;
  * 
  * @author johng
  */
+// implents Comparable<Person>!!!
 public class Customer extends Person implements Comparable{
     
     private int customerID;
@@ -43,6 +44,9 @@ public class Customer extends Person implements Comparable{
         this.copyCSV(s);
     }
     
+    /* Default Constructor */
+    public Customer() {}
+    
     /**
      * Getters
      */
@@ -59,7 +63,7 @@ public class Customer extends Person implements Comparable{
     public String toString() {
         String s;
         s = "CustomerID: " + customerID + "\n";
-        s += "GrossSales: " + grossSales + "\n";
+        s += "GrossSales: $" + grossSales + "\n";
         s += super.toString();
         return s + "\n";
     }
@@ -80,20 +84,15 @@ public class Customer extends Person implements Comparable{
      * Compare the current Customer to the Customer passed as a parameter
      * Check which one has the smaller customerID number
      * 
-     * @param c, the Customer to compare to
+     * @param t, the Customer to compare to
      * @return the value indicating which customer ID is smaller
      */    
     @Override
     public int compareTo(Object t) {
-        try {
-            Customer c = null;
-            if (t instanceof Customer ) c = (Customer)t;
-            if (customerID > c.getCustomerID()) return 1;
-            if (customerID < c.getCustomerID()) return -1; 
-        }
-        catch (Exception e) {
-            // null pointer exception
-        }
+        Customer c = null;
+        if (t instanceof Customer ) c = (Customer)t;
+        if (customerID > c.getCustomerID()) return 1;
+        if (customerID < c.getCustomerID()) return -1; 
         return 0;
     }
     

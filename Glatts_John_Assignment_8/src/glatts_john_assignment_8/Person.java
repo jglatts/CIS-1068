@@ -14,8 +14,11 @@ public class Person {
     private String state;
     private String zipCode;
     
-    /* Construct that accecpts a CVS string */
+    /* Constructer that accecpts a CVS string */
     public Person(String s) { }    
+    
+    /* Default Constructor */
+    public Person() {}
     
     /**
      * Parameterized Person Constructor
@@ -45,9 +48,6 @@ public class Person {
     public String getCity() { return city; }
     public String getState() { return state; }
     public String getZipCode() { return zipCode; }   
-    public int getAddress(boolean check) { 
-        return Integer.parseInt(address); 
-    }
     
     /**
      *  Setters
