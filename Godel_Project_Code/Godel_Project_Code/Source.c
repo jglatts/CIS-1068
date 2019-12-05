@@ -9,7 +9,7 @@ void print_statement(char[], int);
 
 int main() {
 	int number;
-	int primes[] = { 3, 7, 21, 5, 19, 23, 11, 13 };
+	int primes[] = {3, 7, 5, 11, 19, 23, 11, 13};
 	while (1) {
 		printf("Enter an even number:");
 		scanf_s("%d", &number);
