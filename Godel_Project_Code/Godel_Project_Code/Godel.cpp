@@ -1,4 +1,4 @@
-// C++ program to implement Goldbach's conjecture 
+// C/C++ program to implement Goldbach's conjecture 
 #include <iostream>
 #include <string>
 #include <array>
