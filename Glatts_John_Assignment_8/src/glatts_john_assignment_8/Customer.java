@@ -61,10 +61,8 @@ public class Customer extends Person implements Comparable<Customer>{
 
     @Override
     public String toString() {
-        String s;
-        s = "CustomerID: " + customerID + "\n";
-        s += "GrossSales: $" + grossSales + "\n";
-        s += super.toString();
+        String s = "CustomerID: " + customerID + "\nGrossSales: $" + 
+                    grossSales + "\n" + super.toString();
         return s + "\n";
     }
     
@@ -77,7 +75,7 @@ public class Customer extends Person implements Comparable<Customer>{
     
     @Override
     public String toCSV() {
-        return customerID + ", " + grossSales + ", " + super.toCSV();
+        return customerID + "," + grossSales + "," + super.toCSV();
     }
 
     /**
@@ -87,7 +85,6 @@ public class Customer extends Person implements Comparable<Customer>{
      * @param c, the Customer to compare to
      * @return the value indicating which customer ID is smaller
      */    
-    @Override
     public int compareTo(Customer c) {
         if (customerID > c.getCustomerID()) return 1;
         if (customerID < c.getCustomerID()) return -1; 

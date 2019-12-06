@@ -61,8 +61,7 @@ public class Person {
         
     @Override
     public String toString() {
-        String s;
-        s = "FirstName: " + firstName + "\n";
+        String s = "FirstName: " + firstName + "\n";
         s += "LastName: " + lastName + "\n";
         s += "Address: " + address + "\n";
         s += "City: " + city + "\n";
@@ -77,7 +76,7 @@ public class Person {
      * @return the CSV string 
      */
     public String toCSV() {
-        return firstName + ", " + lastName + ", " + address + ", " + city + ", " + state + ", " + zipCode;
+        return firstName + "," + lastName + "," + address + "," + city + "," + state + "," + zipCode;
     }
     
     /**

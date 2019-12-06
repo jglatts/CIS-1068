@@ -4,43 +4,18 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * 
- *  ToDo
- *      - double check if add() can grow dynamically
- *      - get rid of all the try-catches !!!!!!!!!!!!
- *          - try-catches are at toString() and compareTo()
- *      - use a clone() for the add()      
+ * CIS 1068 Project 8  
  * 
  * @author johng
  */
 public class Glatts_John_Assignment_8 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        ///*
-        Customer c1 = new Customer("John", "Glatts", "2009 Carmel", "Jamison", "PA", "18929", 1234, 234.00);
-        Customer c2 = new Customer("John", "Glatts", "2009 Carmel", "Jamison", "PA", "18929", 1234, 234.00);
-        Customer c3 = new Customer("John", "Glatts", "2009 Carmel", "Jamison", "PA", "18929", 1234, 234.00);
-        Customer c4 = new Customer("John", "Glatts", "2009 Carmel", "Jamison", "PA", "18929", 1234, 234.00);
-        Customer c5 = new Customer("John", "Glatts", "2009 Carmel", "Jamison", "PA", "18929", 1234, 234.00);
-        Customer c6 = new Customer("John", "Glatts", "2009 Carmel", "Jamison", "PA", "18929", 1234, 234.00);
-        CustomerList cL = new CustomerList(2);
-        cL.add(c1);
-        cL.add(c2);
-        cL.add(c3);
-        cL.add(c4);
-        cL.add(c5);
-        cL.add(c6);
-        System.out.println("Testing Add - \n" + cL.toString());
-        System.out.println("Testing Size - " + cL.size() + "\n");
-        //*/
-        
-        ///*
         boolean b = false;
         System.out.println("Read file");
         CustomerList cl = CustomerList.read("Customers.csv");
         if(cl != null){
             System.out.println("Read: " + cl.size() + " records");
-            cl.sort();
             System.out.println(cl.toString() + "\n\n\n");
         }
         else {
@@ -93,8 +68,8 @@ public class Glatts_John_Assignment_8 {
             System.out.println("File write not successful");
 
         Customer[] array = new Customer[10];
-        array[0] = new Customer();  
-        //*/
+        array[0] = new Customer(); 
+
     }
     
     

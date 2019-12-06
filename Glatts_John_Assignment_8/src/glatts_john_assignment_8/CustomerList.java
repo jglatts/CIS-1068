@@ -9,16 +9,6 @@ import java.util.Scanner;
  * CustomerList Class
  *      - Mimics ArrayLists with a few extra features 
  * 
- * 
- * ToDo
- *  - Check all methods for completion
- *  - Make sure the file read/write are working
- *      - seem to be getting a 'off-by-one' error on the write()
- *  - Work o Sorting Algs.
- *  
- *  - Add update(id, amt) function
- *      - pass in  custID and amount to add to grossSales
- * 
  * @author johng
  */
 public class CustomerList {
@@ -47,14 +37,7 @@ public class CustomerList {
     /**
      * @return the arrays size
      */
-    public int size() { 
-        int count = 0;
-        for (Customer c : custArray)
-            if (c != null)
-                count++;
-        size = count;
-        return size;
-    }
+    public int size() { return size; }
     
     /**
      * Get the customer at the given array, if it exists
@@ -92,6 +75,7 @@ public class CustomerList {
         else makeTempArrayAdd(c);
     }
     
+    
     /**
      * Find the first empty index in the list and add the new customer
      * 
@@ -112,10 +96,8 @@ public class CustomerList {
      * @param c, the customer to add 
      */
     private void makeTempArrayAdd(Customer c) {
-        size *= 2;
-        Customer[] tempArray = new Customer[size];
+        Customer[] tempArray = new Customer[size*2];
         updateTemp(tempArray, c);
-        updateCustArray(tempArray);
     } 
     
     /**
@@ -125,12 +107,12 @@ public class CustomerList {
      * @param c, the customer to add
      */
     private void updateTemp(Customer[] temp, Customer c) {
-        int count = 0;
-        for (int i = 0; i < size/2; ++i) {
+        int i;
+        for (i = 0; i < size; ++i) {
             temp[i] = custArray[i];
-            count = i;
         }    
-        temp[count+1] = c;
+        temp[i+1] = c;
+        updateCustArray(temp);
     }
     
     /**
@@ -139,10 +121,9 @@ public class CustomerList {
      * @param temp, the temp array to copy from
      */
     private void updateCustArray(Customer[] temp) {
+        size *= 2;
         custArray = new Customer[size];
-        for (int x = 0; x < size; ++x) {
-            custArray[x] = temp[x];
-        }    
+        custArray = temp;
     }
 
     /**
@@ -195,7 +176,7 @@ public class CustomerList {
                 s += c.toString();
                 total += c.getGrossSales();
             }
-        }        
+        }   
         return s + "Total Gross Sales = " + total;
     }
     
@@ -204,14 +185,13 @@ public class CustomerList {
      * Instantiate a new Customer with the CSV string and add them to the list
      * 
      * @param fileName, the file to read
-     * @return the newList if completed, null otherwise
+     * @return the newList if completed, null if read() fails
      * @throws FileNotFoundException 
      */
     public static CustomerList read(String fileName) throws FileNotFoundException {
-        try { return readFile(fileName); } 
-        // change this to a general Exception??
+        try { return readFile(fileName); }
         catch (FileNotFoundException e) {
-            System.out.println("File doesnt exist. Please try again.");
+            System.out.println("FileNotFoundException occured. Please make sure the file exists and try again.");
             return null;
         }
     }
@@ -225,17 +205,31 @@ public class CustomerList {
      * @return the customerList containing the new customers
      */
     private static CustomerList readFile(String fileName) throws FileNotFoundException {
-        File custInput = new File(fileName);
-        Scanner scan = new Scanner(custInput);
-        CustomerList newList = new CustomerList((int)custInput.length()); // get the right value here, way off
-        int size = 0;
-        scan.nextLine();  
+        File input = new File(fileName);
+        Scanner scan = new Scanner(input);
+        CustomerList newList = new CustomerList(readLines(input));
+        newList.size = readLines(input)-1;
+        scan.nextLine(); // get rid of first line in input
         while (scan.hasNextLine()) {
-            size++;
             newList.add(new Customer(scan.nextLine()));                
+        }
+        return newList;
+    }
+    
+    /**
+     * Count the lines in the file using Scanner
+     * 
+     * @param scan, scan object with a file
+     * @return amount of lines in file
+     */
+    private static int readLines(File f) throws FileNotFoundException {
+        Scanner scan = new Scanner(f);
+        int count = 0;
+        while (scan.hasNextLine()) {
+            count++;
+            scan.nextLine(); 
         }    
-        newList.size = size;    
-        return newList;          
+        return count;
     }
     
     /**
@@ -247,9 +241,9 @@ public class CustomerList {
      * @throws FileNotFoundException 
      */
     public static boolean write(CustomerList cList, String f) throws FileNotFoundException {
-        PrintStream output = new PrintStream(new File(f));
-        output.println("CustomerID, GrossSales, FirstName, LastName, Address, City, State, ZipCode");
         boolean check = false;
+        PrintStream output = new PrintStream(new File(f));
+        output.println("CustomerID,GrossSales,FirstName,LastName,Address,City,State,ZipCode");
         for (int i = 0; i < cList.size(); ++i) {
             output.println(cList.get(i).toCSV());
             check = true;
@@ -262,29 +256,44 @@ public class CustomerList {
      */
     public void sort() {
         for (int i = 0; i < size-1; ++i) {
-            for (int x = 0; x < size-i-1; ++x) {
-                if (custArray[x].compareTo(custArray[x+1]) > 0) {
-                    Customer temp = custArray[x+1];
-                    custArray[x+1] = custArray[x];
-                    custArray[x] = temp;                
-                } 
-            }
+            for (int x = 0; x < size-i-1; ++x)
+                if (custArray[x].compareTo(custArray[x+1]) > 0)
+                    swap(x+1, x);
         }        
+    }
+
+    /**
+     *  Swap the customers in smallest->largest order
+     * 
+     * @param valOne, value to swap
+     * @param valTwo , value to swap
+     */
+    private void swap(int valOne, int valTwo) {
+        Customer temp = custArray[valOne];
+        custArray[valOne] = custArray[valTwo];
+        custArray[valTwo] = temp;       
     }
     
     /**
      * Find the index of a Customer with the CustomerID as the argument
      * 
      * @param i, the customerID to look for
-     * @return the index if it is found, the new added index if it was not found
-     * 
-     *  ----ToDo----
-     *      -  add the new value if it doesn't already exist
-     *          - and return the insertion point
+     * @return the index if it is found
      */
     public int indexOf(int i) {
+        this.sort();
         return findIndexOf(i, 0, size-1);
     }
+    
+    private int findInsertionIndex(int value) {
+        int n = 0;
+        for (int i = 0; i < size-1; ++i) {
+            if (custArray[i].getCustomerID() < value && custArray[i+1].getCustomerID() > value) {
+                return i;
+            }
+        }
+        return n;
+    } 
     
     /**
      *  Recursive binary search method to locate the index of a CustomerID 
@@ -313,10 +322,11 @@ public class CustomerList {
      */
     public boolean update(int id, double amount) {
         int idx = indexOf(id);
+        int newIdx;
         if (idx > 0) {
             custArray[idx].setGrossSales(custArray[idx].getGrossSales() + amount);
             return true;                
-        }        
+        } else System.out.println("DEBUG--THE INSERTION POINT IS: " + findInsertionIndex(id));
         return false;
     }
             
