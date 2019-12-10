@@ -4,13 +4,8 @@ package glatts_john_assignment_8;
  * Customer Class
  *  - Inherits Person and uses the Comparable interface
  * 
- * ------ToDo------
- *      - get the compareTo() working
- *      - double check all methods
- * 
  * @author johng
  */
-// implents Comparable<Person>!!!
 public class Customer extends Person implements Comparable<Customer>{
     
     private int customerID;
@@ -47,22 +42,18 @@ public class Customer extends Person implements Comparable<Customer>{
     /* Default Constructor */
     public Customer() {}
     
-    /**
-     * Getters
-     */
+    /* Getters */
     public int getCustomerID() { return customerID; }
     public double getGrossSales() { return grossSales; }
     
-    /**
-     * Setters
-     */
+    /* Setters */
     public void setCustomerID(int c) { this.customerID = c; }
     public void setGrossSales(double d) { this.grossSales = d; }
 
     @Override
     public String toString() {
-        String s = "CustomerID: " + customerID + "\nGrossSales: $" + 
-                    grossSales + "\n" + super.toString();
+        String s = String.format("%-11s %s\n", "CustomerID:", customerID);     
+        s += String.format("%-11s %s\n", "GrossSales:", grossSales) + super.toString();
         return s + "\n";
     }
     
@@ -85,6 +76,7 @@ public class Customer extends Person implements Comparable<Customer>{
      * @param c, the Customer to compare to
      * @return the value indicating which customer ID is smaller
      */    
+    @Override
     public int compareTo(Customer c) {
         if (customerID > c.getCustomerID()) return 1;
         if (customerID < c.getCustomerID()) return -1; 

@@ -7,6 +7,7 @@ import java.io.IOException;
  * CIS 1068 Project 8  
  * 
  * @author johng
+ * @due-date 12/9/19
  */
 public class Glatts_John_Assignment_8 {
 
@@ -46,7 +47,7 @@ public class Glatts_John_Assignment_8 {
         if(b)
             System.out.println("Update successful");
         else
-            System.out.println("Update not successful. Index 350 does not exisit");
+            System.out.println("Update not successful");
         System.out.println("\n\n\n");
         System.out.println("Test remove");
         System.out.println("x = " + cl.get(1)); // Remove an existing Customer
@@ -59,19 +60,16 @@ public class Glatts_John_Assignment_8 {
         if(c != null)
             System.out.println("Deleted\n" + c.toString());
         else
-            System.out.println("No Customer deleted. Index 101 does not exisit");
+            System.out.println("No Customer deleted");
         System.out.println("\n\n\n");
         b = CustomerList.write(cl, "NewCustomers.csv");
         if(b)
-            System.out.println("File write successful. New file saved at 'NewCustomers.csv'");
+            System.out.println("File write successful");
         else
             System.out.println("File write not successful");
 
         Customer[] array = new Customer[10];
         array[0] = new Customer(); 
-
+        
     }
-    
-    
-
 }

@@ -26,7 +26,7 @@ public class CustomerList {
     }
     
     /**
-     * CustomerList constructor with int parameter
+     * CustomerList constructor with an integer parameter
      * @param i, the size of the new array
      */
     public CustomerList(int i) {
@@ -167,16 +167,19 @@ public class CustomerList {
         return c;    
     }
     
+    /**
+     * Format and return a String representing all Customers in the list
+     * 
+     * @return all the customers in the list and total gross sales
+     */
     @Override
     public String toString() {
         String s = "";
         double total = 0;
         for (Customer c : custArray) {
-            if (c != null) {
-                s += c.toString();
-                total += c.getGrossSales();
-            }
-        }   
+            s += c.toString();
+            total += c.getGrossSales();
+        }
         return s + "Total Gross Sales = " + total;
     }
     
@@ -207,7 +210,7 @@ public class CustomerList {
     private static CustomerList readFile(String fileName) throws FileNotFoundException {
         File input = new File(fileName);
         Scanner scan = new Scanner(input);
-        CustomerList newList = new CustomerList(readLines(input));
+        CustomerList newList = new CustomerList(readLines(input)-1);
         newList.size = readLines(input)-1;
         scan.nextLine(); // get rid of first line in input
         while (scan.hasNextLine()) {
@@ -253,14 +256,19 @@ public class CustomerList {
     
     /**
      * Sort the CustomerList by CustomerID
+     * Uses selection-sort
      */
     public void sort() {
-        for (int i = 0; i < size-1; ++i) {
-            for (int x = 0; x < size-i-1; ++x)
-                if (custArray[x].compareTo(custArray[x+1]) > 0)
-                    swap(x+1, x);
-        }        
+        int min = 0;
+        for (int i = 0; i < size; ++i) {
+            for (int j = i+1; j < size; ++j) {
+                if (custArray[min].compareTo(custArray[j]) > 0)
+                    min = j;
+            }
+        swap(i, min);
+        }
     }
+    
 
     /**
      *  Swap the customers in smallest->largest order
@@ -268,10 +276,10 @@ public class CustomerList {
      * @param valOne, value to swap
      * @param valTwo , value to swap
      */
-    private void swap(int valOne, int valTwo) {
-        Customer temp = custArray[valOne];
-        custArray[valOne] = custArray[valTwo];
-        custArray[valTwo] = temp;       
+    private void swap(int idxOne, int idxTwo) {
+        Customer temp = custArray[idxOne];
+        custArray[idxOne] = custArray[idxTwo];
+        custArray[idxTwo] = temp;       
     }
     
     /**
@@ -281,38 +289,28 @@ public class CustomerList {
      * @return the index if it is found
      */
     public int indexOf(int i) {
-        this.sort();
         return findIndexOf(i, 0, size-1);
     }
-    
-    private int findInsertionIndex(int value) {
-        int n = 0;
-        for (int i = 0; i < size-1; ++i) {
-            if (custArray[i].getCustomerID() < value && custArray[i+1].getCustomerID() > value) {
-                return i;
-            }
-        }
-        return n;
-    } 
     
     /**
      *  Recursive binary search method to locate the index of a CustomerID 
      * 
      * @param i, the CustomerID
-     * @param left, the left partition of array
-     * @param right, the right partition of array
+     * @param left, the left index of array
+     * @param right, the right index of array
      * @return the index of the CustomerID, -1 if it DNE
      */
     private int findIndexOf(int i, int left, int right) {
+        int mid = 0;
         if (right >= left) {
-            int mid = left + (right-left) / 2;
+            mid = (right+left) / 2;
             if (custArray[mid].getCustomerID() == i) return mid;
             if (i > custArray[mid].getCustomerID()) return findIndexOf(i, mid + 1, right);
             else return findIndexOf(i, left, mid-1);     
         }
-        return -1;
-    }
-
+        return -mid;
+    }    
+     
     /**
      *  Update the grossSales of a given customer
      * 
@@ -322,12 +320,11 @@ public class CustomerList {
      */
     public boolean update(int id, double amount) {
         int idx = indexOf(id);
-        int newIdx;
         if (idx > 0) {
             custArray[idx].setGrossSales(custArray[idx].getGrossSales() + amount);
             return true;                
-        } else System.out.println("DEBUG--THE INSERTION POINT IS: " + findInsertionIndex(id));
+        }
         return false;
     }
-            
+    
 }

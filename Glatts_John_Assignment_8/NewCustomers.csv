@@ -84,16 +84,16 @@ CustomerID,GrossSales,FirstName,LastName,Address,City,State,ZipCode
 116,3745.0,Edgar,Sun,39 Howell Place,Parsippany,NJ,7054
 117,3548.0,Kirk,Bounds,1818 South 43Rd Street,Collinsville,IL,62234
 118,2490.0,Dianna,Palanukumarasamy,1521 W Wolfram,Columbia,SC,29223
-119,2881.0,Greg,Donahoe,P. O. Box 2600,St. Paul,MN,55101
 120,3391.0,Alex,Bucella,3451 Fairway Commons Dr,Colorado Springs,CO,80907
+126,1094.0,Steve,Beemer,1234 Main St,Watertown,CT,6795
+119,2881.0,Greg,Donahoe,P. O. Box 2600,St. Paul,MN,55101
 121,2509.0,Bob,Demith,20 Carlsbad Rd.,New York,NY,10007
 122,2463.0,Eric,Giraka,115 Williams St Se,Seatle,WA,98036
 123,4866.0,Bill,Jackson,25-3 Latham Villiage Lane,Parma,OH,44134
 124,1996.0,Cameron,Bruch,10925 South Bryant,Addison,TX,75001
 125,4020.0,Leslie,Chism,123 Main St,Roy,UT,84067
-126,1094.0,Steve,Beemer,1234 Main St,Watertown,CT,6795
-127,3835.0,Dhananjay,Garcia,9211 Garland,Columbus,OH,43216
 128,3565.0,Jo,Susai,42524 Parkhurst Rd.,Mansfield,MA,2048
+127,3835.0,Dhananjay,Garcia,9211 Garland,Columbus,OH,43216
 129,4939.0,Jonathan,Pot,14647 S. Peppermill Ct.,Madison,NJ,7940
 130,1149.0,Christy,fedor,Beltline Road,Austin,TX,78745
 131,2169.0,Tina,Wazny,1025 Cadillac Way,Birmingham,AL,35242

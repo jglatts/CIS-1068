@@ -39,9 +39,7 @@ public class Person {
         this.zipCode = z;
     }
     
-    /**
-     *  Getters
-     */
+    /* Getters */
     public String getFirstName() { return firstName; }
     public String getLastName() { return lastName; }
     public String getAddress() { return address+""; }
@@ -49,9 +47,7 @@ public class Person {
     public String getState() { return state; }
     public String getZipCode() { return zipCode; }   
     
-    /**
-     *  Setters
-     */
+    /* Setters */
     public void setFirstName(String s) { this.firstName = s; }
     public void setLastName(String s) { this.lastName = s; }
     public void setAddress(String a) { this.address = a; }
@@ -61,12 +57,12 @@ public class Person {
         
     @Override
     public String toString() {
-        String s = "FirstName: " + firstName + "\n";
-        s += "LastName: " + lastName + "\n";
-        s += "Address: " + address + "\n";
-        s += "City: " + city + "\n";
-        s += "State: " + state + "\n";
-        s += "ZipCode: " + zipCode + "\n";
+        String s = String.format("%-11s %s\n", "FirstName:", firstName);
+        s += String.format("%-11s %s\n", "LastName:", lastName);
+        s += String.format("%-11s %s\n", "Address:", address);
+        s += String.format("%-11s %s\n", "City:", city);
+        s += String.format("%-11s %s\n", "State:", state);
+        s += String.format("%-11s %s\n", "ZipCode:", zipCode);
         return s;
     }
     
@@ -76,7 +72,7 @@ public class Person {
      * @return the CSV string 
      */
     public String toCSV() {
-        return firstName + "," + lastName + "," + address + "," + city + "," + state + "," + zipCode;
+        return firstName+","+lastName+","+address+","+city+","+state+","+zipCode;
     }
     
     /**
@@ -100,6 +96,7 @@ public class Person {
      * @param l, last name
      * @param a, address
      * @param c, city
+     * @param s, state
      * @param z, zip code
      */
     public void copy(String f, String l, String a, String c, String s, String z) {
